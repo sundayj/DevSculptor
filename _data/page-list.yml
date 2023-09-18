@@ -1,0 +1,19 @@
+pages:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Archives
+    url:
+  - title: Categories
+    url:
+  - title: Tags
+    url:
+  - title: Search
+    url:
+  - title: Subscribe
+    url:
+  - title: Projects
+    url:
+  - title: Résumé
+    url:

@@ -1,0 +1,120 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# Run the LIVE development server using `bundle exec jekyll serve -o -l`
+
+#### TOC - [ctrl] + [f] to find these sections in the config.
+# - Site Settings, Meta, and SEO
+# - Search
+# - Build
+
+#### Site Settings, Meta, and SEO
+title: DevSculptor
+version: "0.1.0"
+email: admin@jlsunday.com
+description: >- # Ignore newlines to allow multiline strings. See "aboutme" setting below.
+  A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages.
+tagline: A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://jlsunday.com/DevSculptor/" # The base hostname & protocol for your site, e.g. http://example.com
+publisher: "JLSunday"
+author:
+  name: Justin L Sunday
+  url: https://JLSunday.com/
+show_contact_info: true # Personal Info (twitter,GitHub,email) can be seen on aboutme-sidebar, this info only shown where show_contact_info == true
+# theme: DevSculptor
+default_locale: "en" # Blog sidebar language set, only include: English (en), Chinese (cn), Japanese (jp), Polish (pl), Korean (kr),  Russian (ru), Turkish (tr), and Indonesian (id).
+feed:
+  excerpt_only: true
+footer: # Optional links for sitemap, privacy policy, cookie policy, and terms of service.
+  include_sitemap: false
+  include_privacypolicy: false
+  include_cookiepolicy: false
+  include_terms: false
+logo: "/assets/branding/logo/svg/logo-no-background.svg" # path/to/logo.svg
+aboutme: >-
+  Introduce yourself here!
+  Can include multiple lines.
+aboutme_photo: "" # "/path/to/profile-photo.png"
+google_analytics_key: "G-4Z30BJZ3LK" # UA-57979084-1 # put YOUR key here to enable tracking! (blank to disable)
+
+
+#### Search
+# If you would like to include algolia search in your site, please refer to this blog post by Algolia: https://www.algolia.com/blog/engineering/instant-search-blog-documentation-jekyll-plugin/
+algolia:
+  application_id: NOSLLDLG24
+  index_name: posts
+  search_only_api_key: 446836c037be07a8fff66ade8d708aee
+  files_to_exclude:
+    - a_home.md
+    - b_about.md
+    - c_archives.md
+    - d_categories.md
+    - e_tags.md
+    - f_search.md
+  settings:
+    attributesToHighlight:
+      - categories
+      - content
+      - headings
+      - html
+      - tags
+      - title
+    attributesToSnippet:
+      - content:10
+      - summary:10
+
+
+### Build settings
+markdown: kramdown
+#highlighter: pygments
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  gfm_emojis: true
+paginate: 5
+excerpt_separator: <!-- more -->
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jemoji
+#  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-seo
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
