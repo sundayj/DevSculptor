@@ -1,6 +1,6 @@
 # DevSculptor
 
-!!! caution  Very much a work in progress!
+> :warning: **WARNING**: Very much a work in progress!
 
 A Jekyll theme for a developer's blog. Contains portfolio and resume pages.
 

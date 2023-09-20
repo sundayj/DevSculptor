@@ -36,7 +36,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jlsunday.com/DevSculptor/" # The base hostname & protocol for your site, e.g. http://example.com
 publisher: "JLSunday"
 author:
-  name: Justin L Sunday
+  name: Justin L. Sunday
   url: https://JLSunday.com/
 show_contact_info: true # Personal Info (twitter,GitHub,email) can be seen on aboutme-sidebar, this info only shown where show_contact_info == true
 # theme: DevSculptor
@@ -48,27 +48,32 @@ footer: # Optional links for sitemap, privacy policy, cookie policy, and terms o
   include_privacypolicy: false
   include_cookiepolicy: false
   include_terms: false
-logo: "/assets/branding/logo/svg/logo-no-background.svg" # path/to/logo.svg
+logo_light: "/assets/branding/logo/svg/logo-no-background-black-letters.svg" # path/to/logo.svg
+logo_dark: "/assets/branding/logo/svg/logo-no-background.svg" # path/to/logo.svg
 aboutme: >-
-  Introduce yourself here!
-  Can include multiple lines.
-aboutme_photo: "" # "/path/to/profile-photo.png"
+  Hello, my name is Justin! I live in the US with my wife, amazing daughters, and our crazy canines. 
+  I'm extremely passionate about software development, programming, absorbing every bit of knowledge
+  I can, and sharing that knowledge with anyone interested in learning.
+aboutme_photo:
+  use_github_avatar: false
+  asset_path: # "/path/to/profile-photo.png"
+  hosted_aboutme_photo: "https://github.com/sundayj/sundayj.github.io/blob/master/images/other-images/profile-photo-1352x1098.png?raw=true" # Use if you want to use a photo from somewhere else on the web
 google_analytics_key: "G-4Z30BJZ3LK" # UA-57979084-1 # put YOUR key here to enable tracking! (blank to disable)
 
 
 #### Search
 # If you would like to include algolia search in your site, please refer to this blog post by Algolia: https://www.algolia.com/blog/engineering/instant-search-blog-documentation-jekyll-plugin/
 algolia:
-  application_id: NOSLLDLG24
+  application_id: EWUVB8IM9I
   index_name: posts
-  search_only_api_key: 446836c037be07a8fff66ade8d708aee
+  search_only_api_key: 2a8317b5236115949a9abb019380355e
   files_to_exclude:
-    - a_home.md
-    - b_about.md
-    - c_archives.md
-    - d_categories.md
-    - e_tags.md
-    - f_search.md
+    - pages/home.md
+    - pages/about.md
+    - pages/archives.md
+    - pages/categories.md
+    - pages/tags.md
+    - pages/search.md
   settings:
     attributesToHighlight:
       - categories
@@ -81,14 +86,24 @@ algolia:
       - content:10
       - summary:10
 
+#### CommentBox
+comment_box: 5706851450617856-proj # project Id
+
+#### Contact Form
+fab_form: dcqj53t # form Id
 
 ### Build settings
+# Kramdown Configuration      
 markdown: kramdown
-#highlighter: pygments
+highlighter: rouge
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
-  gfm_emojis: true
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 paginate: 5
 excerpt_separator: <!-- more -->
 plugins:

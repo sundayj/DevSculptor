@@ -5,4 +5,4 @@ comments: yes
 permalink: /about/
 ---
 
-{% include about.md %}
+{% include about.html %}

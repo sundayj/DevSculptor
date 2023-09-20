@@ -1,19 +1,28 @@
 pages:
   - title: Home
     url: /
+    new-tab: false
   - title: About
     url: /about
+    new-tab: false
   - title: Archives
-    url:
+    url: /archives
+    new-tab: false
   - title: Categories
-    url:
+    url: /categories
+    new-tab: false
   - title: Tags
-    url:
+    url: /tags
+    new-tab: false
   - title: Search
-    url:
+    url: /search
+    new-tab: false
   - title: Subscribe
-    url:
+    url: /subscribe
+    new-tab: false
   - title: Projects
-    url:
+    url: /projects
+    new-tab: false
   - title: Résumé
-    url:
+    url: /assets/ExampleResume_20230919.pdf
+    new-tab: true
