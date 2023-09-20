@@ -1,0 +1,28 @@
+### Blog-roll info, only name can be shown on the page.
+- name: Joel on Software
+  href: https://www.joelonsoftware.com/
+  title: Joel on Software
+- name: Kevin Risden's Blog
+  href: https://risdenk.github.io/
+  title: Blog and Tutorials by Kevin Risden
+- name: Flavio Copes
+  href: https://flaviocopes.com/
+  title: Blog and Tutorials by Flavio Copes
+- name: X-Team
+  href: https://x-team.com/blog/
+  title: X-Team
+- name: The Overflow
+  href: https://stackoverflow.blog/
+  title: Stack Overflow's Blog, The Overflow
+- name: Real Python
+  href: https://realpython.com/
+  title: Real Python
+- name: Emerging Tech Brew
+  href: https://www.emergingtechbrew.com/r?kid=51d204
+  title: Emerging Tech Brew Email Newsletter
+- name: Morning Brew
+  href: https://morningbrew.com/daily/r/?kid=51d204
+  title: Morning Brew Email Newsletter
+- name: The Pixel Grimoire
+  href: https://medium.com/pixel-grimoire
+  title: Articles on pixel art and game development

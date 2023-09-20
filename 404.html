@@ -1,0 +1,42 @@
+---
+permalink: /404.html
+layout: default
+---
+{% for page in site.pages %}
+{% if page.title == "About" %}
+{% assign aboutUrl = page.url | prepend: site.url %}
+{% endif %}
+{% endfor %}
+
+<style type="text/css" media="screen">
+  .not-found-container {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  .four-o-four-details {
+    text-align: left;
+  }
+  h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  i {
+    margin-bottom: 16px;
+  }
+</style>
+
+<div class="not-found-container">
+  <h1>404</h1>
+
+  <p><strong>Page not found</strong></p>
+  <i class="far fa-frown-open fa-10x"></i>
+  <p>The requested page could not be found.</p>
+  <p class="four-o-four-details">
+    If you'd like to suggest a post, or other material, regarding the page you
+    were attempting to access, then please contact me through any of the methods
+    listed on the <a href="{{ aboutUrl }}">About</a> page.
+  </p>
+</div>

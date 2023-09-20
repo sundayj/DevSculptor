@@ -1,1 +1,19 @@
-{{ content }}
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+
+  {% include head.html %}
+
+  <body>
+    <div class="container-fluid min-vh-100 d-flex flex-column justify-content-between">
+      <div class="page-content container-fluid">
+        {% include navigation.html %}
+            <div class="page-content container">
+                {{ content }}
+            </div>
+        </div>
+
+        {% include footer.html %}
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+{% include navigation/svg.html %}
+{% assign siteLogoLight = site.logo_light | prepend: site.url %}
+{% assign siteLogoDark = site.logo_dark | prepend: site.url %}
+
+<nav id="navbar" class="navbar navbar-expand-lg bg-body">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        id="site-logo"
+        src="{{ site.logo_light | prepend: site.url }}"
+        alt="DevSculptor"
+        width="200"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarToggler"
+      aria-controls="navbarToggler"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav collapse navbar-collapse" id="navbarToggler">
+
+      {% for page in site.data.page-list.pages %}
+      {% if page.title && page.url %}
+      <li class="nav-item">
+        <a
+          class="nav-link link-body-emphasis"
+          aria-current="page"
+          href="{{ page.url | prepend: site.url }}"
+          {% if page.new-tab == true %}
+          target="_blank" rel="noopener noreferrer"
+          {% endif %}
+          >
+          {{ page.title | replace: page.title, site.data.locales[site.default_locale].[page.title] }}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+
+      {% include navigation/color-theme-switcher.html %}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,73 @@
+<div class="sidebar-module about">
+  <h4>{{ site.data.locales[site.default_locale].Aboutme }}</h4>
+  {% assign abmPhoto = site.aboutme_photo %} {% if abmPhoto.use_github_avatar %}
+  {% avatar {{ site.data.social.github.username }} size=300 %} {% elsif
+  abmPhoto.asset_path %}
+  <img
+    title="{{site.author.name}}"
+    src="{{abmPhoto.asset_path}}"
+    alt="{{site.author.name}}"
+  />
+  {% elsif abmPhoto.hosted_aboutme_photo %}
+  <img
+    title="{{site.author.name}}"
+    src="{{abmPhoto.hosted_aboutme_photo}}"
+    alt="{{site.author.name}}"
+  />
+  {% endif %}
+  <p>{{site.aboutme}}</p>
+  <br />
+
+  {% if site.show_contact_info == true %}
+
+  <section id="contact-me">
+    <p>You can contact me via:</p>
+    {% if site.email != empty %}
+    <a href="mailto:{{site.email}}" title="mailto: {{site.email}}"
+      ><i class="fa fa-envelope-square fa-3x"></i
+    ></a>
+    {% endif %} {% if site.github_username != empty %}
+    <a
+      href="https://github.com/{{site.github_username}}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="GithubID: {{site.github_username}}"
+      ><i class="fa fa-github-square fa-3x"></i
+    ></a>
+    {% endif %} {% if site.twitter_username != empty %}
+    <a
+      href="https://twitter.com/{{site.twitter_username}}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="TwitterID: {{site.twitter_username}}"
+      ><i class="fa fa-twitter-square fa-3x"></i
+    ></a>
+    {% endif %} {% if site.linkedin_username != empty %}
+    <a
+      href="https://www.linkedin.com/in/{{site.linkedin_username}}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="LinkedIn: {{site.linkedin_username}}"
+      ><i class="fa fa-linkedin-square fa-3x"></i
+    ></a>
+    {% endif %} {% if site.stackoverflow_userid != empty %}
+    <a
+      href="https://stackoverflow.com/users/story/{{site.stackoverflow_userid}}?view=Timeline"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="StackOverflow: {{site.stackoverflow_userid}}"
+      ><i class="fa fa-stack-overflow" style="font-size: 2.5em"></i
+    ></a>
+    {% endif %} {% endif %}
+  </section>
+  <p>Or via the <a href="/about/#contact-me">Contact Me</a> form.</p>
+  <div
+    class="fb-like"
+    data-href="{{ site.url }}"
+    data-width=""
+    data-layout="button"
+    data-action="like"
+    data-size="large"
+    data-share="true"
+  ></div>
+</div>

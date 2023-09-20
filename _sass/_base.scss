@@ -1,0 +1,136 @@
+html,
+body {
+    height: 100%;
+}
+
+.page-content {
+    height: 100%;
+    padding-bottom: $footer-height + 20px;
+}
+
+footer {
+    height: $footer-height;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+#rss-button {
+    text-align: center;
+}
+
+/**
+ * Sidebar
+ */
+.sidebar-module {
+    padding: 15px;
+    margin: 0 -15px 15px;
+    font-size: 14px;
+
+    h4 {
+        font-size: $base-font-size;
+        font-weight: bold;
+    }
+
+    li {
+        list-style: none;
+    }
+
+}
+
+/**
+ * Images
+**/
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/**
+ * Aboutme photo Style
+ */
+
+.about {
+    img {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+
+
+/**
+   * Figures
+  **/
+figure>img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+/**
+ * Pills (Tag, Categories, etc.)
+**/
+span.badge.bg-info>a {
+    color: black;
+}
+
+/**
+ * Tags and Categories Style
+**/
+
+.tags-box {
+    li {
+        list-style: none;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .size {
+        font-size: 0.7em;
+        font-weight: bold;
+        vertical-align: super;
+    }
+
+    time {
+        margin-left: 15px;
+        font-style: italic;
+    }
+}
+
+
+/**
+ * Pagination Style
+**/
+.pager {
+    margin-bottom: 60px;
+    text-align: center;
+
+    ul {
+        display: block;
+        margin: 20px 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    li.previous a {
+        float: left;
+    }
+
+    li.next a {
+        float: right;
+    }
+
+    li.disabled {
+        display: none;
+    }
+}

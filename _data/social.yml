@@ -1,0 +1,22 @@
+twitter:
+  username: JustinSunday13
+  card: summary
+  creator: JustinSunday13
+  url: https://twitter.com/JustinSunday13
+facebook:
+  username: JLSundayDev
+  app_id: 647682663047582 # Delete and replace with your own, or just leave it blank.
+  publisher: JLSundayDev
+  url: https://www.facebook.com/JLSundayDev
+#  admins: 1234
+github:
+  username: sundayj
+  url: https://github.com/sundayj
+linkedin:
+  username: justin-sunday
+  url: https://www.linkedin.com/in/justin-sunday
+stackoverflow:
+  userid: 8513024
+  url: https://stackoverflow.com/users/story/8513024?view=Timeline
+discus:
+  shortname: # Leave blank if not using Discus
