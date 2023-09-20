@@ -107,6 +107,7 @@ kramdown:
 paginate: 5
 excerpt_separator: <!-- more -->
 plugins:
+  - jekyll-avatar
   - jekyll-feed
   - jekyll-paginate
   - jemoji
