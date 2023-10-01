@@ -1,6 +1,7 @@
+
 pages:
   - title: Home
-    url: /
+    url: 
     new-tab: false
   - title: About
     url: /about

@@ -27,13 +27,13 @@
 
 #### Site Settings, Meta, and SEO
 title: DevSculptor
-version: "0.1.0"
+version: "0.1.1"
 email: admin@jlsunday.com
 description: >- # Ignore newlines to allow multiline strings. See "aboutme" setting below.
   A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages.
 tagline: A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jlsunday.com/DevSculptor/" # The base hostname & protocol for your site, e.g. http://example.com
+url: "https://jlsunday.com/DevSculptor" # The base hostname & protocol for your site, e.g. http://example.com
 publisher: "JLSunday"
 author:
   name: Justin L. Sunday
@@ -44,10 +44,10 @@ default_locale: "en" # Blog sidebar language set, only include: English (en), Ch
 feed:
   excerpt_only: true
 footer: # Optional links for sitemap, privacy policy, cookie policy, and terms of service.
-  include_sitemap: false
-  include_privacypolicy: false
-  include_cookiepolicy: false
-  include_terms: false
+  include_sitemap: true
+  include_privacypolicy: true
+  include_cookiepolicy: true
+  include_terms: true
 logo_light: "/assets/branding/logo/svg/logo-no-background-black-letters.svg" # path/to/logo.svg
 logo_dark: "/assets/branding/logo/svg/logo-no-background.svg" # path/to/logo.svg
 aboutme: >-

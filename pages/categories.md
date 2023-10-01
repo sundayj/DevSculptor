@@ -4,5 +4,5 @@ title: Categories
 permalink: /categories/
 ---
 
-{% include categories.html %}
+{%- include categories.html -%}
 

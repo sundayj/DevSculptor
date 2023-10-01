@@ -1,0 +1,11 @@
+- Home
+  - [ ] Add images to post cards
+  - [ ] Add grid to social icons in about me?
+- Posts
+  - [ ] Fix TOC styles
+- Resume
+  - [ ] Add personal resume
+- Projects
+  - [ ] Rename to Portfolio?
+  - [ ] Make cards clickable
+    - [ ] Expands to full width on click and other projects show in side bar nav

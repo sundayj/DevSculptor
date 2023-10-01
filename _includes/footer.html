@@ -1,33 +1,32 @@
 <footer class="container-flex bg-body">
   <p>&copy; <span id="copyYear"></span> {{site.author.name}}</p>
 
-  {% if site.footer.include_sitemap == "true" or
-  site.footer.include_privacypolicy == "true" or
-  site.footer.include_cookiepolicy == "true" or site.footer.include_terms ==
-  "true" %}
+  {%- if site.footer.include_sitemap == true or
+  site.footer.include_privacypolicy == true or
+  site.footer.include_cookiepolicy == true or site.footer.include_terms ==
+  true -%}
   <p>
-    {% if site.footer.include_sitemap == "true" %}
+    {%- if site.footer.include_sitemap == true -%}
     <a
       href="{{ '/sitemap.xml' | prepend: site.url }}"
       target="_blank"
       rel="noopener noreferrer"
-      >Site Map</a
-    >
-    {% endif %} {% if site.footer.include_privacypolicy == "true" %} |
+      >Site Map</a><span> | </span>
+    {%- endif -%} {%- if site.footer.include_privacypolicy == true -%}
     <a href="{{ '/privacy-policy/' | prepend: site.url }}">Privacy Policy</a> {%
-    endif %} {% if site.footer.include_cookiepolicy == "true" %} |
+    endif -%} {%- if site.footer.include_cookiepolicy == true -%}<span> | </span>
     <a href="{{ '/cookie-policy/' | prepend: site.url }}">Cookie Policy</a> {%
-    endif %} {% if site.footer.include_terms == "true" %} |
+    endif -%} {%- if site.footer.include_terms == true -%}<span> | </span>
     <a href="{{ '/terms-of-service/' | prepend: site.url }}"
       >Terms of Service</a
     >
-    {% endif %}
+    {%- endif -%}
   </p>
-  {% endif %}
+  {%- endif -%}
 
   <p>
     Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a> on
-    <a href="https://github.com/">Github</a> | Theme from
+    <a href="https://github.com/">Github</a><span> | </span>Theme from
     <a
       href="https://github.com/sundayj/DevSculptor"
       target="_blank"
@@ -42,9 +41,9 @@
     style="position: fixed; bottom: 150px; right: 50px; cursor: pointer"
   >
     <a title="Back To Top"
-      ><img src="{{ "/assets/images/topbutton.png" | prepend: site.url }}"/></a
+      ><img src="{{ '/assets/images/topbutton.png' | prepend: site.url }}"/></a
     >
   </div>
 
-  {% include footer/scripts.html %}
+  {%- include footer/scripts.html -%}
 </footer>

@@ -8,4 +8,4 @@ permalink: /search/
 
 <div class="post-list" id="search-hits"></div>
 
-{% include search/algolia.html %}
+{%- include search/algolia.html -%}

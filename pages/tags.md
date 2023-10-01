@@ -4,4 +4,4 @@ title: Tags
 permalink: /tags/
 ---
 
-{% include tags.html %}
+{%- include tags.html -%}

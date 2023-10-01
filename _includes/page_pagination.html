@@ -1,6 +1,6 @@
 <section class="pager">
   <ul>
-    {% if page.previous %}
+    {%- if page.previous -%}
     <li class="previous">
       <a
         href="{{ site.baseurl }}{{ page.previous.url }}"
@@ -8,11 +8,11 @@
         >&larr; {{ site.data.locales[site.default_locale].Previous }}</a
       >
     </li>
-    {% else %}
+    {%- else -%}
     <li class="disabled">
       <a>&larr; {{ site.data.locales[site.default_locale].Previous }}</a>
     </li>
-    {% endif %} {% if page.next %}
+    {%- endif -%} {%- if page.next -%}
     <li class="next">
       <a
         href="{{ site.baseurl }}{{ page.next.url }}"
@@ -20,10 +20,10 @@
         >{{ site.data.locales[site.default_locale].Next }} &rarr;</a
       >
     </li>
-    {% else %}
+    {%- else -%}
     <li class="disabled">
       <a>{{ site.data.locales[site.default_locale].Next }} &rarr;</a>
     </li>
-    {% endif %}
+    {%- endif -%}
   </ul>
 </section>

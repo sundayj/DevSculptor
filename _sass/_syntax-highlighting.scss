@@ -1,10 +1,11 @@
 figure.highlight,
 pre.highlight {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 0.5rem;
     margin: 1.5rem 0;
     overflow: auto;
     line-height: 1.4rem;
     position: relative;
+    max-height: 500px;
 }
 
 .highlighter-rouge {
@@ -40,6 +41,10 @@ div.highlighter-rouge::before {
     height: 1rem;
     right: .5rem;
     z-index: 5;
+}
+
+div.highlighter-rouge::before {
+    padding-right: 1rem;
 }
 
 figure.highlight::before {

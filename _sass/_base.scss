@@ -1,45 +1,137 @@
 html,
 body {
-    height: 100%;
-}
-
-.page-content {
-    height: 100%;
-    padding-bottom: $footer-height + 20px;
+  height: 100%;
 }
 
 footer {
-    height: $footer-height;
+  text-align: center;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 
-    &:hover {
-        text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 #rss-button {
-    text-align: center;
+  text-align: center;
 }
+
+.post-meta > i {
+  margin: 0 5px;
+}
+
+.post {
+  padding-bottom: 20px;
+
+  #toc-sidebar {
+    overflow-x: hidden;
+    height: fit-content;
+    position: -webkit-sticky; // Safari
+    position: sticky;
+    top: 0;
+    transition: all ease-in 0.5s;
+    padding: 0;
+
+    #jekyll-toc {
+      width: 100%;
+      padding: 0;
+      margin-left: 0;
+
+      li {
+        padding-top: 10px;
+        position: relative;
+        list-style-type: inherit;
+        //margin-left: 45px;
+      }
+
+      //.toc-submenu {
+      //  margin-left: 0;
+      //  padding-left: 0;
+      //
+      //  li {
+      //    margin-left: 20px;
+      //  }
+      //}
+    }
+
+    .toc-header {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+  #tocOpenBtn {
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    position: -webkit-sticky; // Safari
+    position: sticky;
+    top: 0;
+    transition: all ease-in .5s;
+
+    #chevron {
+      transition: all ease-in .5s;
+      font-size: 20px;
+      display: inline-block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #toc-sidebar {
+      position: relative;
+    }
+
+    #tocOpenBtn {
+      display: none;
+    }
+
+    #toc-sidebar,
+    #tocOpenBtn {
+      transition: none;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .octicon {
+    visibility: hidden;
+  }
+
+  &:hover {
+    .octicon {
+      visibility: visible;
+      fill: currentColor;
+      vertical-align: middle;
+    }
+  }
+
+}
+
 
 /**
  * Sidebar
  */
 .sidebar-module {
-    padding: 15px;
-    margin: 0 -15px 15px;
-    font-size: 14px;
+  margin-bottom: 50px;
+  font-size: 14px;
 
-    h4 {
-        font-size: $base-font-size;
-        font-weight: bold;
-    }
 
-    li {
-        list-style: none;
-    }
+  h4 {
+    font-size: $base-font-size;
+    font-weight: bold;
+  }
+
+  li {
+    list-style: none;
+  }
 
 }
 
@@ -47,39 +139,37 @@ a {
  * Images
 **/
 img {
-    max-width: 100%;
-    vertical-align: middle;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 /**
  * Aboutme photo Style
- */
-
+**/
 .about {
-    img {
-        margin: 0 auto;
-        display: block;
-    }
+  img {
+    margin: 0 auto;
+    display: block;
+  }
 }
-
 
 
 /**
-   * Figures
-  **/
-figure>img {
-    display: block;
+ * Figures
+**/
+figure > img {
+  display: block;
 }
 
 figcaption {
-    font-size: $small-font-size;
+  font-size: $small-font-size;
 }
 
 /**
  * Pills (Tag, Categories, etc.)
 **/
-span.badge.bg-info>a {
-    color: black;
+span.badge.bg-info > a {
+  color: black;
 }
 
 /**
@@ -87,22 +177,22 @@ span.badge.bg-info>a {
 **/
 
 .tags-box {
-    li {
-        list-style: none;
-        font-weight: bold;
-        margin-top: 10px;
-    }
+  li {
+    list-style: none;
+    font-weight: bold;
+    margin-top: 10px;
+  }
 
-    .size {
-        font-size: 0.7em;
-        font-weight: bold;
-        vertical-align: super;
-    }
+  .size {
+    font-size: 0.7em;
+    font-weight: bold;
+    vertical-align: super;
+  }
 
-    time {
-        margin-left: 15px;
-        font-style: italic;
-    }
+  time {
+    margin-left: 15px;
+    font-style: italic;
+  }
 }
 
 
@@ -110,27 +200,48 @@ span.badge.bg-info>a {
  * Pagination Style
 **/
 .pager {
-    margin-bottom: 60px;
-    text-align: center;
+  margin-bottom: 60px;
+  text-align: center;
 
-    ul {
-        display: block;
-        margin: 20px 0;
-    }
+  ul {
+    display: block;
+    margin: 20px 0;
+  }
 
-    li {
-        list-style: none;
-    }
+  li {
+    list-style: none;
+  }
 
-    li.previous a {
-        float: left;
-    }
+  li.previous a {
+    float: left;
+  }
 
-    li.next a {
-        float: right;
-    }
+  li.next a {
+    float: right;
+  }
 
-    li.disabled {
-        display: none;
-    }
+  li.disabled {
+    display: none;
+  }
+}
+
+/**
+ * Scrollbars
+**/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

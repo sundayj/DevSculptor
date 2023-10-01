@@ -1,0 +1,44 @@
+- name: DevSculptor Jekyll Theme
+  start-month: 9
+  start-year: 2023 # Optional
+  end-month:
+  end-year: 
+  ongoing: true
+  tags: [jekyll, theme]
+  skills: [html, liquid, sass, javascript]
+  website: "https://jlsunday.com/DevSculptor"
+  description: "A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages."
+  images:
+    - title: "Home Page Example"
+      path: "/assets/images/projects/desvsculptor/home-page-example.png"
+      caption: "Home page example with the DevSculptor theme."
+      link: ""
+      primary: true
+- name: Example Project
+  start-month: 1
+  start-year: 2017 # Optional
+  end-month: 5
+  end-year: 2017
+  ongoing: true
+  tags: [jekyll, theme, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, tag10]
+  skills: [html, liquid, sass, javascript]
+  client:
+    name: Example Client
+    website: "https://jlsunday.com"
+  website: ""
+  description: ""
+  images:
+- name: "Example Project 2"
+  start-month: 
+  start-year: 
+  end-month: 
+  end-year: 
+  ongoing: true
+  tags: []
+  skills: []
+  client:
+    name: ""
+    website: ""
+  website: ""
+  description: ""
+  images:

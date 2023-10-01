@@ -2,11 +2,11 @@
 permalink: /404.html
 layout: default
 ---
-{% for page in site.pages %}
-{% if page.title == "About" %}
-{% assign aboutUrl = page.url | prepend: site.url %}
-{% endif %}
-{% endfor %}
+{%- for page in site.pages -%}
+{%- if page.title == "About" -%}
+{%- assign aboutUrl = page.url | prepend: site.url -%}
+{%- endif -%}
+{%- endfor -%}
 
 <style type="text/css" media="screen">
   .not-found-container {

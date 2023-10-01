@@ -4,4 +4,4 @@ title: Archives
 permalink: /archives/
 ---
 
-{% include archives.html %}
+{%- include archives.html -%}

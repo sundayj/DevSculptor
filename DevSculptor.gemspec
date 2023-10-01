@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "DevSculptor"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Justin Sunday"]
   spec.email         = ["jsunday.devop@gmail.com"]
 
