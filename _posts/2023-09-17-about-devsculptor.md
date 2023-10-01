@@ -101,7 +101,7 @@ DevSculptor
 │   site.webmanifest
 │   _config.yml
 ├───assets
-│   │   ExampleResume_20230919.pdf
+│   │   JustinSunday_Resume_2023-09-14.pdf
 │   │
 │   ├───branding
 │   │   ├───branding-colors-and-fonts
