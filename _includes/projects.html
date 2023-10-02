@@ -1,10 +1,11 @@
 {%- assign projects = site.data.projects | where_exp: "item", "item.name != ''" -%}
 
-<div class="container row">
-    {%- for proj in projects -%}
-        <div class="col">
-            {%- assign primaryImage = proj.images | where: "primary", true | first -%}
-            {%- include projects/project-card.html -%}
+{%- for proj in projects -%}
+    <div class="row gy-5">
+        <div class="col-sm-12">
+            {% if proj.images %}
+                {%- include projects/project-card.html -%}
+            {% endif %}
         </div>
-    {%- endfor -%}
-</div>
+    </div>
+{%- endfor -%}

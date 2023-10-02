@@ -2,6 +2,7 @@
 layout: post
 title: About DevSculptor
 date: 2023-09-17 13:00
+last_modified_at: 2023-10-02
 category: Documentation
 author: {{ site.author.name }}
 tags: [jekyll, theme]

@@ -4,30 +4,39 @@
   end-month:
   end-year: 
   ongoing: true
-  tags: [jekyll, theme]
-  skills: [html, liquid, sass, javascript]
+  tags: [Jekyll, Theme]
+  skills: [HTML, Liquid, Sass, JavaScript]
   website: "https://jlsunday.com/DevSculptor"
-  description: "A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages."
+  description: "A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages. Contains localization support for multiple languages."
   images:
     - title: "Home Page Example"
       path: "/assets/images/projects/desvsculptor/home-page-example.png"
       caption: "Home page example with the DevSculptor theme."
       link: ""
       primary: true
-- name: Example Project
+    - title: "Home Page Example on Mobile"
+      path: "/assets/images/projects/desvsculptor/20230926-localhost-iphone14promax-homepage-fotor-bg-remover-20231002163813.png"
+      caption: "Home page example on mobile."
+      link: ""
+      primary: false
+- name: Dummy Project
   start-month: 1
   start-year: 2017 # Optional
   end-month: 5
   end-year: 2017
   ongoing: true
-  tags: [jekyll, theme, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8, tag9, tag10]
-  skills: [html, liquid, sass, javascript]
+  tags: [Jekyll, Theme, Tag1, Tag2, Tag3, Tag4, Tag5, Tag6, Tag7, Tag8, Tag9, Tag10]
+  skills: [HTML, Liquid, Sass, JavaScript]
   client:
     name: Example Client
     website: "https://jlsunday.com"
   website: ""
-  description: ""
+  description: "Lorem ipsum dolor sit amet sed nulla. In lorem sea delenit erat eu nonummy hendrerit et amet laoreet diam lorem sed duis elitr accumsan sadipscing ea. Sit esse ad lorem sit et labore erat dolores at hendrerit. Diam luptatum stet sit. Elitr sed ut. Dolor sed lorem autem hendrerit iusto diam lorem duo eirmod sed dolore. Consequat lorem takimata. Voluptua nonumy autem labore vero amet vero amet invidunt et ea eirmod takimata feugiat kasd duo accusam. Dolore et vero sit facilisi duis tempor commodo diam commodo sea gubergren ea. Tempor aliquyam et nonumy dolore sadipscing sed diam sit stet ut sit elitr amet diam diam te duo. Tempor voluptua vulputate rebum. Wisi et takimata takimata adipiscing voluptua."
   images:
+    - title: ""
+      path: "/assets/images/projects/dummy_project/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
+      caption: Photo by <a href="https://unsplash.com/@ilyapavlov?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ilya Pavlov</a> on <a href="https://unsplash.com/photos/OqtafYT5kTw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      primary: true
 - name: "Example Project 2"
   start-month: 
   start-year: 
@@ -41,4 +50,3 @@
     website: ""
   website: ""
   description: ""
-  images:

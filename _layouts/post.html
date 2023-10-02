@@ -32,7 +32,9 @@ layout: default
             </time>
             {%- if page.last_modified_at -%}
                 <time itemprop="dateModified" datetime="{{ page.last_modified_at }}">
-                    Edited on {{ page.last_modified_at | date: "%b %-d, %Y" }}
+                    <span class="post-meta">
+                        <i class="bi bi-pencil-square" title="{{ locales[site.default_locale].EditDate }}"></i>
+                    </span> {{ page.last_modified_at | date: "%b %-d, %Y" }}
                 </time>
             {%- endif -%}
         </p>

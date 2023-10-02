@@ -7,6 +7,7 @@ en: # English
   Previous: "Older" # Previous Post
   Next: "Newer" # Next Post
   PostDate: "Date Posted"
+  EditDate: "Date Edited"
   Search: "Site Search"
   Home: "Home" # Home Page
   About: "About" # About site/blog
@@ -26,6 +27,7 @@ es: # Spanish (Español)
   Previous: "Anterior" # Publicación Anterior
   Next: "Siguiente" # Publicación Siguiente
   PostDate: "Fecha de Publicación"
+  EditDate: "Fecha de Edición"
   Search: "Buscar en el Sitio"
   Home: "Inicio" # Página de Inicio
   About: "Acerca de" # Acerca del sitio/blog
@@ -45,6 +47,7 @@ fr: # French (Français)
   Previous: "Plus Ancien" # Article Précédent
   Next: "Plus Récent" # Article Suivant
   PostDate: "Date de Publication"
+  EditDate: "Date de Modification"
   Search: "Recherche sur le Site"
   Home: "Accueil" # Page d'Accueil
   About: "À Propos" # À Propos du site/blog
@@ -64,6 +67,7 @@ de: # German (Deutsch)
   Previous: "Älter" # Älterer Beitrag
   Next: "Neuer" # Neuerer Beitrag
   PostDate: "Veröffentlichungsdatum"
+  EditDate: "Bearbeitungsdatum"
   Search: "Website-Suche"
   Home: "Startseite" # Startseite
   About: "Über" # Über die Website/den Blog
@@ -83,6 +87,7 @@ pt: # Portuguese (Português)
   Previous: "Anterior" # Postagem Anterior
   Next: "Próxima" # Próxima Postagem
   PostDate: "Data da Publicação"
+  EditDate: "Data de Edição"
   Search: "Pesquisa no Site"
   Home: "Página Inicial" # Página Inicial
   About: "Sobre" # Sobre o site/blog
@@ -102,6 +107,7 @@ it: # Italian (Italiano)
   Previous: "Precedente" # Articolo Precedente
   Next: "Successivo" # Prossimo Articolo
   PostDate: "Data di Pubblicazione"
+  EditDate: "Data di Modifica"
   Search: "Ricerca nel Sito"
   Home: "Home" # Pagina Principale
   About: "Informazioni" # Informazioni sul sito/blog
@@ -121,6 +127,7 @@ nl: # Dutch (Nederlands)
   Previous: "Ouder" # Vorige Bericht
   Next: "Nieuwer" # Volgende Bericht
   PostDate: "Publicatiedatum"
+  EditDate: "Bewerkingsdatum"
   Search: "Site Zoeken"
   Home: "Home" # Startpagina
   About: "Over" # Over de Website/het Blog
@@ -140,6 +147,7 @@ cn: # Chinese (Simplified) - 中文 (Zhōngwén)
   Previous: "前一页"
   Next: "后一页"
   PostDate: "发表时间"
+  EditDate: "编辑日期" # Biānjí Rìqī
   Search: "站内搜索"
   Home: "首页"
   About: "关于"
@@ -159,6 +167,7 @@ jp: # Japanese - 日本語 (Nihongo)
   Previous: "前の記事"
   Next: "次の記事"
   PostDate: "投稿日時"
+  EditDate: "編集日" # Henshū-bi
   Search: "サイト内検索"
   Home: "ホーム"
   About: "このブログについて"
@@ -178,6 +187,7 @@ pl: # Polish - Polski
   Previous: "Starsze"
   Next: "Nowsze"
   PostDate: "Data publikacji"
+  EditDate: "Data Edycji"
   Search: "Wyszukiwanie na stronie"
   Home: "Strona główna"
   About: "O witrynie"
@@ -197,6 +207,7 @@ kr: # Korean - 한국어 (Hangugeo)
   Previous: "이전 게시물"
   Next: "다음 게시물"
   PostDate: "게시 날짜"
+  EditDate: "편집 일자" # Pyeonjib Ilja
   Search: "사이트 내 검색"
   Home: "홈"
   About: "정보"
@@ -216,6 +227,7 @@ ru: # Russian - Русский (Russkiy)
   Previous: "Предыдущий пост"
   Next: "Следующий пост"
   PostDate: "Дата публикации"
+  EditDate: "Дата Редактирования" # Data Redaktirovaniya
   Search: "Поиск по сайту"
   Home: "Главная"
   About: "О блоге"
@@ -235,6 +247,7 @@ tr: # Turkish - Türkçe
   Previous: "Daha Eski"
   Next: "Daha Yeni"
   PostDate: "Yayınlanma Tarihi"
+  EditDate: "Düzenleme Tarihi"
   Search: "Sitede Ara"
   Home: "Ana Sayfa"
   About: "Hakkında"
@@ -254,6 +267,7 @@ id: # Indonesian - Bahasa Indonesia
   Previous: "Lebih Lama"
   Next: "Lebih Baru"
   PostDate: "Tanggal Diposting"
+  EditDate: "Tanggal Diedit"
   Search: "Pencarian Situs"
   Home: "Beranda"
   About: "Tentang"

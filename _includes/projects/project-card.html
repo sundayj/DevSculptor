@@ -1,53 +1,70 @@
 <div id="project-{{ proj.name }}" class="card h-100 d-block">
-    {%- if primaryImage -%}
-        <img
-                src="{{ primaryImage.path }}"
-                class="card-img-top"
-                alt="{{ primaryImage.title }}"
-        />
-    {%- endif -%}
     <div class="card-body">
         <h2 class="card-title">{{ proj.name }}</h2>
         <div class="card-text">
             {%- if proj.start-year and proj.start-year != "" -%}
                 <p><b>Project Started</b>: {{ proj.start-year }}</p>
-            {%- endif -%} {%- if proj.end-year and proj.end-year != "" -%}
+            {%- endif -%}
+            {%- if proj.end-year and proj.end-year != "" -%}
                 <p><b>Project Ended</b>: {{ proj.end-year }}</p>
-            {%- endif -%} {%- if proj.website != "" -%}
-                <div>
-                    <p>
-                        <b>Project Website</b>:
-                        <a
-                                href="{{ proj.website }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title="{{ proj.website }}"
-                        >{{ proj.website }}</a
-                        >
-                    </p>
-                </div>
-            {%- endif -%} {%- if proj.client and proj.client.name != '' -%}
-                <b>Client</b>: {%- if proj.client.website != '' -%}
+            {%- endif -%}
+            {%- if proj.website != "" -%}
+                <p>
+                    <b>Project Website</b>:
                     <a
-                            href="{{ proj.client.website }}"
+                            href="{{ proj.website }}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            title="{{ proj.client.website }}"
+                            title="{{ proj.website }}"
                     >
-                        {{ proj.client.name }}</a
-                    >
-                {%- else -%} {{ proj.client.name }} {%- endif -%} {%- endif -%}
-        </div>
-    </div>
-    <div class="card-footer container text-center">
-        {%- if proj.tags -%}
-            <div class="row align-items-center g-2">
-                {%- for tag in proj.tags -%}
-                    <div class="col-1 mx-2 align-middle">
-                        <span class="badge bg-info">{{ tag }}</span>
+                        {{ proj.website }}
+                    </a>
+                </p>
+            {%- endif -%}
+            {%- if proj.client and proj.client.name != '' -%}
+                <p>
+                    <b>Client</b>:
+                    {%- if proj.client.website != '' -%}
+                        <a
+                                href="{{ proj.client.website }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="{{ proj.client.website }}"
+                        >
+                            {{ proj.client.name }}
+                        </a>
+                    {%- else -%}
+                        {{ proj.client.name }}
+                    {%- endif -%}
+                </p>
+            {%- endif -%}
+            {% if proj.tags %}
+                <p>
+                    <b>Tags</b>: {{ proj.tags | array_to_sentence_string }}
+                </p>
+            {% endif %}
+            {% if proj.skills %}
+                <p><b>Skills</b>: {{ proj.skills | array_to_sentence_string }}</p>
+            {% endif %}
+            {% if proj.description %}
+                <p>
+                    <b>Description</b>: <br>
+                </p>
+                    <p>{{ proj.description }}</p>
+            {% endif %}
+            <p><b>Project Images</b>:<br></p>
+            <div class="container row">
+                {%- for image in proj.images -%}
+                    <div class="col-sm-12 col-md-6">
+                        <figure>
+                            <img alt="{{ image.title }}" src="{{ image.path | prepend: site.url }}" loading="lazy" title="{{ image.title }}">
+                            <figcaption>
+                                {{ image.caption }}
+                            </figcaption>
+                        </figure>
                     </div>
                 {%- endfor -%}
             </div>
-        {%- endif -%}
+        </div>
     </div>
 </div>
