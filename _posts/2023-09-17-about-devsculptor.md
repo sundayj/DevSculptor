@@ -17,7 +17,8 @@ order: 1
 
 ## Description
 
-A Jekyll theme for a developer's blog. Contains portfolio and resume pages.
+A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages.
+Contains localization support for multiple languages.
 
 ## Features List
 - Responsive
@@ -38,15 +39,21 @@ A Jekyll theme for a developer's blog. Contains portfolio and resume pages.
 - RSS Feed for feed reader subscriptions
 - Includes site map, privacy policy, cookie policy, and terms of service
 - Blog Roll
-- Multiple Languages support
-    - English
-    - Chinese
-    - Japanese
-    - Polish
-    - Korean
-    - Russian
-    - Turkish
-    - Indonesian
+- Localization support with help from ChatGPT
+  - English
+  - Spanish (Español)
+  - French (Français)
+  - German (Deutsch)
+  - Portuguese (Português)
+  - Italian (Italiano)
+  - Dutch (Nederlands)
+  - Chinese (Simplified) - 中文 (Zhōngwén)
+  - Japanese - 日本語 (Nihongo)
+  - Polish - Polski
+  - Korean - 한국어 (Hangugeo)
+  - Russian - Русский (Russkiy)
+  - Turkish - Türkçe
+  - Indonesian - Bahasa Indonesia
 
 
 ## Installation
@@ -167,10 +174,8 @@ DevSculptor
 │   │   home.html
 │   │   navigation.html
 │   │   page_pagination.html
-│   │   reading-time.html
 │   │   sidebar.html
 │   │   tags.html
-│   │   toc-sidebar.html
 │   │
 │   ├───footer
 │   │       anchor-links.html
@@ -198,9 +203,6 @@ DevSculptor
 │   ├───sidebar
 │   │       aboutme.html
 │   │       blogroll.html
-│   │
-│   └───toc-sidebar
-│           toc.html
 │
 ├───_layouts
 │       default.html
@@ -249,5 +251,4 @@ The theme is available as open source under the terms of the [MIT License](https
 - Search provided by [Algolia](https://www.algolia.com/blog/engineering/instant-search-blog-documentation-jekyll-plugin/)
 - Contact Me form by [Fabform](https://fabform.io/)
 - Comments provided by [HTML Comment Box](https://www.htmlcommentbox.com/)
-- TOC provided by [allejo/jekyll-toc](https://github.com/allejo/jekyll-toc)
 - Anchor Tags provided by [allejo/jekyll-anchor-headings](https://github.com/allejo/jekyll-anchor-headings)

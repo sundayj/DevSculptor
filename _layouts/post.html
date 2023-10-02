@@ -10,7 +10,7 @@ layout: default
         <meta itemprop="keywords" content="{{ page.tags | join: ',' }}"/>
         <p class="post-meta">
             <span class="post-meta">
-                <i class="bi bi-archive" title="{{ locales[site.default_locale].PostedInCategories }}"></i>
+                <i class="bi bi-archive" title="{{ locales[site.default_locale].Categories }}"></i>
             </span>
             {%- for cat in page.categories -%}
                 <a href="{{ site.baseurl }}/categories/#{{ cat }}">{{ cat }}</a>
@@ -18,9 +18,8 @@ layout: default
             {%- endfor -%}
             {%- if page.tags != empty -%}
                 <span class="post-meta">
-                    <i class="bi bi-tags" title="{{ locales[site.default_locale].Taggedwith }}"></i>
+                    <i class="bi bi-tags" title="{{ locales[site.default_locale].Tags }}"></i>
                 </span>
-                {% comment %}{{ page.tags | array_to_sentence_string }}{% endcomment %}
                 {%- for tag in page.tags -%}
                     <a href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}"> {{ tag }}</a>
                     {%- unless page.tags.last == tag -%}, {%- endunless -%}
@@ -47,13 +46,7 @@ layout: default
 
     <div class="row container">
         {%- if page.include_TOC -%}
-            <div id="toc-sidebar" class="nav flex-column" style="width: 175px">
-                <div class="toc-header">Contents</div>
-                {%- include toc-sidebar.html -%}
-            </div>
-            <span aria-expanded="false" id="tocOpenBtn" class="badge text-bg-secondary" aria-label="mobile navigation"
-                  onclick="toggleTOC()">TOC<br/><span id="chevron"
-                                                      style="transform: rotate(-180deg)">&raquo;</span></span>
+            {% include toc.html %}
         {%- endif -%}
         <div class="col-md-8">
             <article class="post-content" id="article" itemprop="articleBody">

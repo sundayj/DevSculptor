@@ -27,11 +27,14 @@
 
 #### Site Settings, Meta, and SEO
 title: DevSculptor
-version: "0.1.1"
+version: "0.1.2"
 email: admin@jlsunday.com
 description: >- # Ignore newlines to allow multiline strings. See "aboutme" setting below.
-  A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages.
-tagline: A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages.
+  A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages.
+  Contains localization support for multiple languages.
+tagline: >-
+  A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages.
+  Contains localization support for multiple languages.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jlsunday.com/DevSculptor" # The base hostname & protocol for your site, e.g. http://example.com
 publisher: "JLSunday"

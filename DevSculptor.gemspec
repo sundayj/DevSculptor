@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "DevSculptor"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Justin Sunday"]
   spec.email         = ["jsunday.devop@gmail.com"]
 
-  spec.summary       = "A full-featured Jekyll blog theme tailored to software devs that contains project and resume pages."
+  spec.summary       = "A full-featured, Github-PAges compatible, Jekyll blog theme tailored to software devs that contains project and resume pages. Contains localization support for multiple languages."
   spec.homepage      = "https://jlsunday.com/DevSculptor/"
   spec.license       = "MIT"
 

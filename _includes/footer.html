@@ -1,3 +1,4 @@
+{%- assign locales = site.data.locales -%}
 <footer class="container-flex bg-body">
   <p>&copy; <span id="copyYear"></span> {{site.author.name}}</p>
 
@@ -11,14 +12,14 @@
       href="{{ '/sitemap.xml' | prepend: site.url }}"
       target="_blank"
       rel="noopener noreferrer"
-      >Site Map</a><span> | </span>
+      >{{ locales[site.default_locale].Site_Map }}</a><span> | </span>
     {%- endif -%} {%- if site.footer.include_privacypolicy == true -%}
-    <a href="{{ '/privacy-policy/' | prepend: site.url }}">Privacy Policy</a> {%
+    <a href="{{ '/privacy-policy/' | prepend: site.url }}">{{ locales[site.default_locale].Privacy_Policy }}</a> {%
     endif -%} {%- if site.footer.include_cookiepolicy == true -%}<span> | </span>
-    <a href="{{ '/cookie-policy/' | prepend: site.url }}">Cookie Policy</a> {%
+    <a href="{{ '/cookie-policy/' | prepend: site.url }}">{{ locales[site.default_locale].Cookie_Policy }}</a> {%
     endif -%} {%- if site.footer.include_terms == true -%}<span> | </span>
     <a href="{{ '/terms-of-service/' | prepend: site.url }}"
-      >Terms of Service</a
+      >{{ locales[site.default_locale].Terms_of_Service }}</a
     >
     {%- endif -%}
   </p>
