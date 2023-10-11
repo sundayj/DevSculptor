@@ -495,6 +495,7 @@ bar, a new tab will open in their browser with my résumé as a pdf.
     &#9888; <b>WARNING</b>: The Projects page, as well as this data file are still being refined and are subject to change.
     Please subscribe to the theme's blog, or follow this repo in GitHub to stay up-to-date with any potentially breaking changes.
 </div>
+<br>
 
 The projects data can be accessed by your site by using `site.data.projects`. The data within is stored as a list of objects.
 Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members).
