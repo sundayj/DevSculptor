@@ -4,7 +4,7 @@
 ![Donate to this project using Buy Me A Coffee](https://img.shields.io/badge/Buy_me_a_coffee-donate-yellow?label=Buy%20me%20a%20coffee!&link=https%3A%2F%2Fwww.buymeacoffee.com%2Fjustinsunday)
 
 
-<div class="ascii-art">
+```text
 :::'###::::'########:::'#######::'##::::'##:'########:                                                              
 ::'## ##::: ##.... ##:'##.... ##: ##:::: ##:... ##..::                                                              
 :'##:. ##:: ##:::: ##: ##:::: ##: ##:::: ##:::: ##::::                                                              
@@ -21,7 +21,7 @@
  ##:::: ##: ##::::::::. ## ##:::'##::: ##: ##::: ##: ##:::: ##: ##::::::: ##::::::::::: ##:::: ##:::: ##: ##::. ##::
  ########:: ########:::. ###::::. ######::. ######::. #######:: ########: ##::::::::::: ##::::. #######:: ##:::. ##:
 ........:::........:::::...::::::......::::......::::.......:::........::..::::::::::::..::::::.......:::..:::::..::
-</div>
+```
 <p><small><a href="http://patorjk.com/software/taag/#p=display&f=Banner3-D&t=About%0ADevSculptor" target="_blank" rel="noopener noreferrer">banner3-D</a> ascii font by Merlin Greywolf merlin@brahms.udel.edu August 9, 1994</small></p>
 
 ---------------
@@ -36,7 +36,7 @@ If you like this theme, please consider sponsoring:
   <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
 </a>
 
-For feature requests, or bugs, please create an issue [here](https://github.com/sundayj/DevSculptor/issues){:target="_blank"}{:rel="noopener noreferrer"}
+For feature requests, or bugs, please create an issue [here](https://github.com/sundayj/DevSculptor/issues)
 
 -----------------
 ## Features List
@@ -180,17 +180,17 @@ The root of your project will contain the files listed above. Here, I will expla
     - `privacy-policy.md`
     - `terms-of-service.md`
 - `Gemfile`
-  - Specifies the gems and plugins needed for your Jekyll site. More info can be found [here](https://jekyllrb.com/docs/ruby-101/#:~:text=A%20Gemfile%20is%20a%20list%20of%20gems%20used,group%20%3Ajekyll_plugins%20do%20gem%20%22jekyll-feed%22%20gem%20%22jekyll-seo-tag%22%20end){:target="_blank"}{:rel="noopener noreferrer"}
+  - Specifies the gems and plugins needed for your Jekyll site. More info can be found [here](https://jekyllrb.com/docs/ruby-101/#:~:text=A%20Gemfile%20is%20a%20list%20of%20gems%20used,group%20%3Ajekyll_plugins%20do%20gem%20%22jekyll-feed%22%20gem%20%22jekyll-seo-tag%22%20end)
 - `index.html`
   - The entry point for your website. Every website has one of these!
 - `README.md`
   - If you're hosting your site on GitHub pages, or have your site in a repo, then you likely have one of these!
 - `site.webmanifest`
-  - Used here for when a user installs your site to their device. More info can be found [here](https://developer.mozilla.org/en-US/docs/Web/Manifest){:target="_blank"}{:rel="noopener noreferrer"}
+  - Used here for when a user installs your site to their device. More info can be found [here](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 - `_config.yml`
-  - Holds site-wide settings and configuration for you Jekyll site. More info below. General info on Jekyll config can be found [here](https://jekyllrb.com/docs/configuration/){:target="_blank"}{:rel="noopener noreferrer"}
+  - Holds site-wide settings and configuration for you Jekyll site. More info below. General info on Jekyll config can be found [here](https://jekyllrb.com/docs/configuration/)
 - `sitemap.xml`
-  - Your sitemap helps search engines by giving them an idea of your site's structure and how to find the data you want crawled for better search results. More info can be found [here](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview){:target="_blank"}{:rel="noopener noreferrer"}
+  - Your sitemap helps search engines by giving them an idea of your site's structure and how to find the data you want crawled for better search results. More info can be found [here](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview)
   - Jekyll can actually generate one of these for you.
 
 -------------------
@@ -375,7 +375,7 @@ then you will need to edit `search.md`.
 │       social.yml
 ```
 
-The `_data` folder contains files that are utilized much in the same way as the `_config.yml` file. More info on data files can be found [here](https://jekyllrb.com/docs/datafiles/){:target="_blank"}{:rel="noopener noreferrer"}.
+The `_data` folder contains files that are utilized much in the same way as the `_config.yml` file. More info on data files can be found [here](https://jekyllrb.com/docs/datafiles/).
 The fies found within this folder hold data and details specific to your site. If you like to write your blog posts locally while running
 the Jekyll server, then you'll notice that changes you make within the data files actually appear when the app refreshes, whereas changes
 made within the `_config.yml` don't without the server being restarted.
@@ -384,7 +384,7 @@ made within the `_config.yml` don't without the server being restarted.
 ##### `blogroll.yml`
 
 The blogroll data can be accessed by your site by using `site.data.blogroll`. The data within is stored as a list of objects.
-Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members){:target="_blank"}{:rel="noopener noreferrer"}.
+Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members).
 
 Each object in the list contains only three properties. Please see below for a small example:
 
@@ -394,28 +394,28 @@ Each object in the list contains only three properties. Please see below for a s
   title: Stack Overflow's Blog, The Overflow    # The title tells the tooltip what to display when the user hovers over the link.
 ```
 
-For the definition of "blogroll," please click [here](https://www.techopedia.com/definition/4822/blogroll){:target="_blank"}{:rel="noopener noreferrer"}.
+For the definition of "blogroll," please click [here](https://www.techopedia.com/definition/4822/blogroll).
 Currently, the blogroll within the DevRunner theme is minimal. On the homepage of the site, the blogroll
 will present as a list of links. Hovering over those links will display a tooltip as shown below. Click the image to
 open a larger version in a new window.
 
 
 <figure style="margin-top: 20px;">
-        <a href="assets/images/site-shots/blogroll-to-datayml-20201010.png" target="_blank" rel="noopener noreferrer"><img alt="Blogroll to data.blogroll relationship" src="{{ '/assets/images/site-shots/blogroll-to-datayml-20201010.png' | prepend: site.url }}" loading="lazy" title="Blogroll to data.blogroll relationship"></a>
+        <a href="https://github.com/sundayj/DevSculptor/blob/a11b77a1938cb41cbec1ac3c28d0b4ca2fe38e6e/assets/images/site-shots/blogroll-to-datayml-20201010.png" target="_blank" rel="noopener noreferrer"><img alt="Blogroll to data.blogroll relationship" src="https://github.com/sundayj/DevSculptor/blob/a11b77a1938cb41cbec1ac3c28d0b4ca2fe38e6e/assets/images/site-shots/blogroll-to-datayml-20201010.png" loading="lazy" title="Blogroll to data.blogroll relationship"></a>
     <figcaption>
         Blogroll to data.blogroll relationship
     </figcaption>
 </figure>
-
+https://github.com/sundayj/DevSculptor/blob/a11b77a1938cb41cbec1ac3c28d0b4ca2fe38e6e/assets/images/site-shots/blogroll-to-datayml-20201010.png
 -------------------
 ##### `locales.yml`
 
 The locales data can be accessed by your site by using `site.data.locales`. The data within is stored as a list of named objects.
-Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members){:target="_blank"}{:rel="noopener noreferrer"}.
+Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members).
 
 This data file lists the various languages for which this the DevSculptor theme has attempted localization. The translations
 were created with the help of ChatGPT, so please use with caution and double-check your desired language within the `locales.yml`
-file. If you find any errors, or have any suggestions, I would greatly appreciate it if you open an [issue](https://github.com/sundayj/DevSculptor/issues){:target="_blank"}{:rel="noopener noreferrer"} on GitHub, or
+file. If you find any errors, or have any suggestions, I would greatly appreciate it if you open an [issue](https://github.com/sundayj/DevSculptor/issues) on GitHub, or
 contact me via any of the methods listed on the home page, or the About page.
 
 Here is an example of the properties listed within the `locales` named objects. I'm providing two to illustrate how every
@@ -497,7 +497,7 @@ bar, a new tab will open in their browser with my résumé as a pdf.
 </div>
 
 The projects data can be accessed by your site by using `site.data.projects`. The data within is stored as a list of objects.
-Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members){:target="_blank"}{:rel="noopener noreferrer"}.
+Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members).
 
 The objects within `projects.yml` are more a bit more involved than the data stored within the other data files.
 There are a few important details to pay special attention to:
@@ -579,7 +579,7 @@ Examples:
 ##### `social.yml`
 
 The social data can be accessed by your site by using `site.data.social`.  The data within is stored as a list of objects.
-Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members){:target="_blank"}{:rel="noopener noreferrer"}.
+Jekyll's site has a good short use case for this type of list [here](https://jekyllrb.com/docs/datafiles/#example-list-of-members).
 
 Social is a bit different from the other data files. The objects stored in `social.yml` are primarily used for the social
 icons listed in the "About Me" on the home page. However, the objects can contain other properties that may be used elsewhere.
