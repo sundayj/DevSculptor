@@ -1,8 +1,7 @@
 - name: DevSculptor Jekyll Theme
+  display: true # Whether to display this project on the projects page.
   start-month: 9
   start-year: 2023 # Optional
-  end-month:
-  end-year: 
   ongoing: true
   tags: [Jekyll, Theme]
   skills: [HTML, Liquid, Sass, JavaScript]
@@ -13,13 +12,12 @@
       path: "/assets/images/projects/desvsculptor/home-page-example.png"
       caption: "Home page example with the DevSculptor theme."
       link: ""
-      primary: true
     - title: "Home Page Example on Mobile"
       path: "/assets/images/projects/desvsculptor/20230926-localhost-iphone14promax-homepage-fotor-bg-remover-20231002163813.png"
       caption: "Home page example on mobile."
       link: ""
-      primary: false
 - name: Dummy Project
+  display: true
   start-month: 1
   start-year: 2017 # Optional
   end-month: 5
@@ -36,8 +34,8 @@
     - title: ""
       path: "/assets/images/projects/dummy_project/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
       caption: Photo by <a href="https://unsplash.com/@ilyapavlov?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ilya Pavlov</a> on <a href="https://unsplash.com/photos/OqtafYT5kTw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-      primary: true
 - name: "Example Project 2"
+  display: false
   start-month: 
   start-year: 
   end-month: 

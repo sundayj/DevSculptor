@@ -1,2 +1,6 @@
-{%- include sidebar/aboutme.html -%}
-{%- include sidebar/blogroll.html -%}
+{%- if site.aboutme.include == true -%}
+    {%- include sidebar/aboutme.html -%}
+{%- endif -%}
+{%- if site.include_blogroll ==true -%}
+    {%- include sidebar/blogroll.html -%}
+{%- endif -%}

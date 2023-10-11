@@ -1,6 +1,6 @@
 <div class="sidebar-module about container">
     <h4>{{ site.data.locales[site.default_locale].Aboutme }}</h4>
-    {%- assign abmPhoto = site.aboutme_photo -%}
+    {%- assign abmPhoto = site.aboutme.photo -%}
     {%- if abmPhoto.use_github_avatar -%}
         {%- avatar{{ site.data.social.github.username }}size = 300 -%}
     {%- elsif abmPhoto.asset_path -%}
@@ -17,7 +17,7 @@
         />
     {%- endif -%}
     <br>
-    <p>{{ site.aboutme }}</p>
+    <p>{{ site.aboutme.text }}</p>
     <br>
 
     {%- if site.show_contact_info == true -%}

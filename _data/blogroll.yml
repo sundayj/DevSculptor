@@ -1,4 +1,5 @@
-### Blog-roll info, only name can be shown on the page.
+# Blog-roll info, only name will be shown, but you can add details, or a short description,
+# in the title attribute to show a tooltip when hovering over the link.
 - name: Joel on Software
   href: https://www.joelonsoftware.com/
   title: Joel on Software
@@ -26,3 +27,8 @@
 - name: The Pixel Grimoire
   href: https://medium.com/pixel-grimoire
   title: Articles on pixel art and game development
+- name: patorjk.com
+  href: https://patorjk.com/754575blog/
+  title: >-
+    Patrick Gillespie's blog. Has some cool online tools under the software category,
+    like the Text to ASCII Art Generator.

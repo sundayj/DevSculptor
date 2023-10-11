@@ -25,6 +25,8 @@ a {
 
 .post {
   padding-bottom: 20px;
+  font-family: $monospace-font-family;
+  font-size: $base-font-size;
 
   #toc-sidebar {
     overflow-x: hidden;
@@ -35,26 +37,22 @@ a {
     transition: all ease-in 0.5s;
     padding: 0;
 
-    #jekyll-toc {
+    #toc-contents {
+      font-size: $small-font-size;
       width: 100%;
       padding: 0;
       margin-left: 0;
 
-      li {
-        padding-top: 10px;
-        position: relative;
-        list-style-type: inherit;
-        //margin-left: 45px;
+      ul {
+        padding-left: 1rem;
+
+        li {
+          padding-top: 10px;
+          position: relative;
+          list-style-type: inherit;
+        }
       }
 
-      //.toc-submenu {
-      //  margin-left: 0;
-      //  padding-left: 0;
-      //
-      //  li {
-      //    margin-left: 20px;
-      //  }
-      //}
     }
 
     .toc-header {
@@ -112,7 +110,6 @@ h6 {
       vertical-align: middle;
     }
   }
-
 }
 
 
@@ -123,16 +120,14 @@ h6 {
   margin-bottom: 50px;
   font-size: 14px;
 
-
   h4 {
-    font-size: $base-font-size;
+    font-size: $large-font-size;
     font-weight: bold;
   }
 
   li {
     list-style: none;
   }
-
 }
 
 /**
@@ -244,4 +239,12 @@ span.badge.bg-info > a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/**
+ * Ascii-Art
+**/
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
 }

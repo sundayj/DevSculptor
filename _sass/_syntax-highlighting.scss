@@ -1,9 +1,13 @@
+/**
+*  More themes for code-fenced areas can be found here: https://cdnjs.com/libraries/highlight.js
+*  To change the theme, simply change the stylesheet script tag in _includes/head/stylesheets.html
+**/
+
 figure.highlight,
 pre.highlight {
     padding: 1rem 1.5rem 1rem 0.5rem;
     margin: 1.5rem 0;
     overflow: auto;
-    line-height: 1.4rem;
     position: relative;
     max-height: 500px;
 }
@@ -16,9 +20,8 @@ pre.highlight {
 li code.highlighter-rouge,
 p code.highlighter-rouge,
 p kbd {
-    color: #c66;
-    font-size: 1rem;
-    background-color: #f7f7f5;
+    color: #e9ecef;
+    background-color: #2e3e4e;
     padding: 2px 4px;
     border-radius: 2px;
     word-break: break-word;
@@ -82,14 +85,13 @@ figure pre {
     margin-right: 10px!important;
 }
 
-/* Base16 Tomorrow Dark by Chris Kempson; https://github.com/idleberg */
 .highlight,
 .highlight pre,
 .highlight table {
     background: #2e3e4e;
     color: #e9ecef;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: $base-font-size;
 }
 
 .highlight .hll { background-color: #373b41 }

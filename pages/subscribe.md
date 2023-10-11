@@ -4,7 +4,7 @@ title: Subscribe
 permalink: /subscribe
 ---
 
-If you'd like to receive updates from DevSculptor, please subscribe to the provided RSS feed via the button below.
+If you'd like to receive updates from {{ site.title }}, please subscribe to the provided RSS feed via the button below.
 
 <div id="rss-button"><a href="/feed.xml" target="_blank" rel="noopener noreferrer"><i class="fas fa-rss-square fa-6x"></i></a></div>
 

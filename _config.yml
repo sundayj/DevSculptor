@@ -23,11 +23,13 @@
 #### TOC - [ctrl] + [f] to find these sections in the config.
 # - Site Settings, Meta, and SEO
 # - Search
-# - Build
+# - CommentBox
+# - Contact Form
+# - Build Settings
 
 #### Site Settings, Meta, and SEO
 title: DevSculptor
-version: "0.1.2"
+version: 1.0.0
 email: admin@jlsunday.com
 description: >- # Ignore newlines to allow multiline strings. See "aboutme" setting below.
   A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages.
@@ -35,32 +37,33 @@ description: >- # Ignore newlines to allow multiline strings. See "aboutme" sett
 tagline: >-
   A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages.
   Contains localization support for multiple languages.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" # The subpath of your site, e.g. /blog
 url: "https://jlsunday.com/DevSculptor" # The base hostname & protocol for your site, e.g. http://example.com
-publisher: "JLSunday"
 author:
   name: Justin L. Sunday
   url: https://JLSunday.com/
-show_contact_info: true # Personal Info (twitter,GitHub,email) can be seen on aboutme-sidebar, this info only shown where show_contact_info == true
-# theme: DevSculptor
-default_locale: "en" # Blog sidebar language set, only include: English (en), Chinese (cn), Japanese (jp), Polish (pl), Korean (kr),  Russian (ru), Turkish (tr), and Indonesian (id).
+default_locale: "en" # Sets locale across the site
+logo_light: "/assets/branding/logo/svg/logo-no-background-black-letters.svg" # path/to/logo.svg
+logo_dark: "/assets/branding/logo/svg/logo-no-background.svg" # path/to/logo.svg
+show_contact_info: true # Personal Info (twitter,GitHub,email) can be seen in `\_includes\sidebar\aboutme.html`, this info only shown where show_contact_info == true
+include_blogroll: true
 feed:
   excerpt_only: true
-footer: # Optional links for sitemap, privacy policy, cookie policy, and terms of service.
+footer: # Optional links for sitemap, privacy policy, cookie policy, and terms of service. These have placeholders inside that specify the author's/website's names. So, if you are in the United States, theis should be pretty much plug and play. I would definitely recommend that you look these over yourself for safety reasons. I assume no responsibility if you use these provided files. They are meant as placeholders/ templates to be edited for your specific use-case.
   include_sitemap: true
   include_privacypolicy: true
   include_cookiepolicy: true
   include_terms: true
-logo_light: "/assets/branding/logo/svg/logo-no-background-black-letters.svg" # path/to/logo.svg
-logo_dark: "/assets/branding/logo/svg/logo-no-background.svg" # path/to/logo.svg
-aboutme: >-
-  Hello, my name is Justin! I live in the US with my wife, amazing daughters, and our crazy canines. 
-  I'm extremely passionate about software development, programming, absorbing every bit of knowledge
-  I can, and sharing that knowledge with anyone interested in learning.
-aboutme_photo:
-  use_github_avatar: false
-  asset_path: # "/path/to/profile-photo.png"
-  hosted_aboutme_photo: "https://github.com/sundayj/sundayj.github.io/blob/master/images/other-images/profile-photo-1352x1098.png?raw=true" # Use if you want to use a photo from somewhere else on the web
+aboutme:
+  include: true
+  text: >-
+    Hello, my name is Justin! I live in the US with my wife, amazing daughters, and our crazy canines. 
+    I'm extremely passionate about software development, programming, absorbing every bit of knowledge
+    I can, and sharing that knowledge with anyone interested in learning.
+  photo:
+    use_github_avatar: false
+    asset_path: # "/path/to/profile-photo.png"
+    hosted_aboutme_photo: "https://github.com/sundayj/sundayj.github.io/blob/master/images/other-images/profile-photo-1352x1098.png?raw=true" # Use if you want to use a photo from somewhere else on the web
 google_analytics_key: "G-4Z30BJZ3LK" # UA-57979084-1 # put YOUR key here to enable tracking! (blank to disable)
 
 
@@ -95,7 +98,7 @@ comment_box: 5706851450617856-proj # project Id
 #### Contact Form
 fab_form: dcqj53t # form Id
 
-### Build settings
+### Build Settings
 # Kramdown Configuration      
 markdown: kramdown
 highlighter: rouge

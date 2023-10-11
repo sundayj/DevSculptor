@@ -5,8 +5,11 @@
             {%- if proj.start-year and proj.start-year != "" -%}
                 <p><b>Project Started</b>: {{ proj.start-year }}</p>
             {%- endif -%}
-            {%- if proj.end-year and proj.end-year != "" -%}
+            {%- if proj.end-year and proj.end-year != "" and proj.ongoing == false -%}
                 <p><b>Project Ended</b>: {{ proj.end-year }}</p>
+            {%- endif -%}
+            {%- if proj.ongoing and proj.ongoing == true -%}
+                <p><b>Project Ended</b>: Ongoing</p>
             {%- endif -%}
             {%- if proj.website != "" -%}
                 <p>
