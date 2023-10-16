@@ -2,6 +2,7 @@
 ![Jekyll](https://img.shields.io/badge/Jekyll-%3E%3D3.9-blue?label=Jekyll&link=https%3A%2F%2Fjekyllrb.com%2F)
 [![Gem Version](https://badge.fury.io/rb/DevSculptor.svg)](https://badge.fury.io/rb/DevSculptor)
 ![Donate to this project using Buy Me A Coffee](https://img.shields.io/badge/Buy_me_a_coffee-donate-yellow?label=Buy%20me%20a%20coffee!&link=https%3A%2F%2Fwww.buymeacoffee.com%2Fjustinsunday)
+[![wakatime](https://wakatime.com/badge/github/sundayj/DevSculptor.svg)](https://wakatime.com/badge/github/sundayj/DevSculptor)
 
 
 ```text
