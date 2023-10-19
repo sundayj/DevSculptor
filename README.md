@@ -675,12 +675,13 @@ just be sure to include the following properties, shown here with GitHub:
 -------------------
 #### `_sass` Folder
 
-```shell
+```yaml
 ├───_sass
 │       _base.scss
 │       _navigation.scss
 │       _syntax-highlighting.scss
 ```
+
 
 ---------------
 ## Contributing

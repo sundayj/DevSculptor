@@ -29,7 +29,7 @@
 
 #### Site Settings, Meta, and SEO
 title: DevSculptor
-version: 1.0.0
+version: 1.0.2
 email: admin@jlsunday.com
 description: >- # Ignore newlines to allow multiline strings. See "aboutme" setting below.
   A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages.
