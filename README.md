@@ -31,12 +31,16 @@
 A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and résumé pages.
 Contains localization support for multiple languages.
 
+-------------
+## Sponsoring
 If you like this theme, please consider sponsoring:
 
 <a href="https://www.buymeacoffee.com/justinsunday" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
 </a>
 
+---------------------------
+## Feature Requests or Bugs
 For feature requests, or bugs, please create an issue [here](https://github.com/sundayj/DevSculptor/issues)
 
 -----------------
