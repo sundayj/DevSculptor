@@ -60,7 +60,9 @@
                 {%- for image in proj.images -%}
                     <div class="col-sm-12 col-md-6">
                         <figure>
-                            <img alt="{{ image.title }}" src="{{ image.path | prepend: site.url }}" loading="lazy" title="{{ image.title }}">
+                            <a href="{{ image.path | prepend: site.url }}" target="_blank" rel="noopener noreferrer">
+                                <img alt="{{ image.title }}" src="{{ image.path | prepend: site.url }}" loading="lazy" title="Click to see larger image">
+                            </a>
                             <figcaption>
                                 {{ image.caption }}
                             </figcaption>

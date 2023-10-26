@@ -8,14 +8,18 @@
   website: "https://jlsunday.com/DevSculptor"
   description: "A full-featured, GitHub Pages compatible, Jekyll blog theme tailored to software devs that contains project and resume pages. Contains localization support for multiple languages."
   images:
-    - title: "Home Page Example"
+    - title: "Home Page Example - Dark Theme"
       path: "/assets/images/projects/desvsculptor/home-page-example.png"
-      caption: "Home page example with the DevSculptor theme."
-      link: ""
-    - title: "Home Page Example on Mobile"
+      caption: "Home page example with the DevSculptor theme in dark mode."
+    - title: "Home Page Example - Light Theme"
+      path: "/assets/images/projects/desvsculptor/home-page-example-light.png"
+      caption: "Home page example with the DevSculptor theme in light mode."
+    - title: "Home Page Example on Mobile - Dark Theme"
       path: "/assets/images/projects/desvsculptor/20230926-localhost-iphone14promax-homepage-fotor-bg-remover-20231002163813.png"
       caption: "Home page example on mobile."
-      link: ""
+    - title: "Home Page Example on Mobile - Light Theme"
+      path: "/assets/images/projects/desvsculptor/20231026-jlsunday.com-iphone14promax-fotor-bg-remover-2023102692716.png"
+      caption: "Home page example on mobile."
 - name: Dummy Project
   display: true
   start-month: 1

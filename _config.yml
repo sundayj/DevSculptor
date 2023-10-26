@@ -63,7 +63,7 @@ aboutme:
   photo:
     use_github_avatar: false
     asset_path: # "/path/to/profile-photo.png"
-    hosted_aboutme_photo: "https://github.com/sundayj/sundayj.github.io/blob/master/images/other-images/profile-photo-1352x1098.png?raw=true" # Use if you want to use a photo from somewhere else on the web
+    hosted_aboutme_photo: "https://github.com/sundayj/sundayj.github.io/blob/master/assets/images/author/profile-photo-1352x1098.png?raw=true" # Use if you want to use a photo from somewhere else on the web
 google_analytics_key: "G-4Z30BJZ3LK" # UA-57979084-1 # put YOUR key here to enable tracking! (blank to disable)
 
 

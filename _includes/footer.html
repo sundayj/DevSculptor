@@ -34,7 +34,10 @@
       title="Check out the DevSculptor theme at GitHub"
       aria-label="Check out the DevSculptor theme at GitHub"
       >sundayj/DevSculptor</a
-    > <span>v{{ site.version }}</span>
+    >
+    {% if site.version and site.version != "" %}
+      <span> v{{ site.version }}</span>
+    {% endif %}
   </p>
 
   <div
@@ -42,7 +45,7 @@
     style="position: fixed; bottom: 150px; right: 50px; cursor: pointer"
   >
     <a title="Back To Top"
-      ><img src="{{ '/assets/images/topbutton.png' | prepend: site.url }}"/></a
+      ><img src="{{ '/assets/images/topbutton.png' | prepend: site.url }}" alt="To Top" title="To Top"/></a
     >
   </div>
 
