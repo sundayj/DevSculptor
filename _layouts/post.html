@@ -13,7 +13,7 @@ layout: default
                 <i class="bi bi-archive" title="{{ locales[site.default_locale].Categories }}"></i>
             </span>
             {%- for cat in page.categories -%}
-                <a href="{{ site.url }}/categories/#{{ cat }}">{{ cat }}</a>
+                <a href="{{ site.baseurl }}/categories/#{{ cat }}">{{ cat }}</a>
                 {%- unless page.categories.last == cat -%}, {%- endunless -%}
             {%- endfor -%}
             {%- if page.tags != empty -%}
@@ -21,7 +21,7 @@ layout: default
                     <i class="bi bi-tags" title="{{ locales[site.default_locale].Tags }}"></i>
                 </span>
                 {%- for tag in page.tags -%}
-                    <a href="{{ site.url }}/tags/#{{ tag }}" title="{{ tag }}"> {{ tag }}</a>
+                    <a href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}"> {{ tag }}</a>
                     {%- unless page.tags.last == tag -%}, {%- endunless -%}
                 {%- endfor -%}
             {%- endif -%}
@@ -50,7 +50,7 @@ layout: default
         {%- if page.include_TOC -%}
             {% include toc.html %}
         {%- endif -%}
-        <div class="col-md-8">
+        <div class="col" id="article-column">
             <article class="post-content" id="article" itemprop="articleBody">
                 {%- include anchor_headings.html html=content anchorBody="<svg
           class='octicon'
