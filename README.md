@@ -319,7 +319,7 @@ The rest of the properties found within `_config.yml` will be described further 
 │   │   │
 │   │   └───projects
 │   │       ├───desvsculptor
-│   │       │       20230926-localhost-iphone14promax-homepage-fotor-bg-remover-20231002163813.png
+│   │       │       20230926-samsung-galaxy-s20-ultra-homepage-screenshot-rocks.png
 │   │       │       20230926-localhost-iphone14promax-homepage.PNG
 │   │       │       home-page-example.png
 │   │       │
@@ -544,7 +544,7 @@ Examples:
       caption: "Home page example with the DevSculptor theme."
       link: ""
     - title: "Home Page Example on Mobile"
-      path: "/assets/images/projects/desvsculptor/20230926-localhost-iphone14promax-homepage-fotor-bg-remover-20231002163813.png"
+      path: "/assets/images/projects/desvsculptor/20230926-samsung-galaxy-s20-ultra-homepage-screenshot-rocks.png"
       caption: "Home page example on mobile."
       link: ""
 - name: Dummy Project
