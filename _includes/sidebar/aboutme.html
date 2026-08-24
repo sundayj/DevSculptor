@@ -1,29 +1,32 @@
 <div class="sidebar-module about container">
     <h4>{{ site.data.locales[site.default_locale].Aboutme }}</h4>
-    {%- assign abmPhoto = site.aboutme.photo -%}
-    {%- if abmPhoto.use_github_avatar -%}
-        {%- avatar{{ site.data.social.github.username }}size = 300 -%}
-    {%- elsif abmPhoto.asset_path -%}
+    {%- assign authorPhoto = site.author.image -%}
+    {%- if authorPhoto == nil or authorPhoto == "" -%}
+        {%- assign abmPhoto = site.aboutme.photo -%}
+        {%- if abmPhoto.use_github_avatar -%}
+            {%- avatar{{ site.data.social.github.username }}size = 300 -%}
+        {%- elsif abmPhoto.asset_path -%}
+            {%- assign authorPhoto = abmPhoto.asset_path -%}
+        {%- elsif abmPhoto.hosted_aboutme_photo -%}
+            {%- assign authorPhoto = abmPhoto.hosted_aboutme_photo -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- if authorPhoto and authorPhoto != "" -%}
         <img
                 title="{{ site.author.name }}"
-                src="{{ abmPhoto.asset_path }}"
-                alt="{{ site.author.name }}"
-        />
-    {%- elsif abmPhoto.hosted_aboutme_photo -%}
-        <img
-                title="{{ site.author.name }}"
-                src="{{ abmPhoto.hosted_aboutme_photo }}"
+                src="{{ authorPhoto }}"
                 alt="{{ site.author.name }}"
         />
     {%- endif -%}
     <br>
-    <p>{{ site.aboutme.text }}</p>
+    <p>{{ site.author.bio | default: site.aboutme.text }}</p>
+    <p><a href="{{ '/about/' | relative_url }}">More about my work</a></p>
     <br>
 
     {%- if site.show_contact_info == true -%}
 
-    <section id="contact-me">
-        <p>You can contact me via the <a href="/about/#contact-me">Contact Me</a> form or any of the below options:</p>
+    <section id="contact-me-sidebar">
+        <p>You can contact me via the <a href="{{ '/about/#contact-me' | relative_url }}">Contact Me</a> form or any of the options below:</p>
         <div class="row">
             {%- if site.email != empty -%}
                 <div class="col-1 mx-3">
@@ -38,7 +41,7 @@
                     <div class="col-1 mx-3">
                         <a href="{{ social.url }}"
                            target="_blank"
-                           rel="noopener noreferrer"
+                           rel="noopener noreferrer me"
                            title="{{ social.name | capitalize }}: {{ social.username }}"
                         ><i class="{{ social.icon }}" style="font-size: 2rem;"></i>
                         </a>
@@ -46,8 +49,8 @@
                 {%- endfor -%}
             {%- endif -%}
         </div>
-        {%- endif -%}
     </section>
+    {%- endif -%}
 
     <div
             class="fb-like"
