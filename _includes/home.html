@@ -1,7 +1,124 @@
+{%- assign locales = site.data.locales -%}
+{%- assign homepage = site.data.homepage -%}
+
+{% if homepage %}
+<div class="home">
+    <section class="py-4 py-lg-5 border-bottom">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-9">
+                <p class="text-uppercase text-body-secondary fw-semibold mb-2">{{ homepage.hero.eyebrow | default: site.tagline }}</p>
+                <h1 class="display-4 fw-bold mb-3">{{ homepage.hero.title | default: site.title }}</h1>
+                {% if homepage.hero.subtitle %}
+                <p class="lead mb-3">{{ homepage.hero.subtitle }}</p>
+                {% endif %}
+                {% if homepage.hero.description %}
+                <p class="fs-5 text-body-secondary mb-4">{{ homepage.hero.description }}</p>
+                {% endif %}
+                {% if homepage.hero.actions %}
+                <div class="d-flex flex-wrap gap-2">
+                    {% for action in homepage.hero.actions %}
+                    <a class="btn {% if forloop.first %}btn-primary{% else %}btn-outline-secondary{% endif %}" href="{{ action.url }}">
+                        {{ action.label }}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% if homepage.featured_writing %}
+    <section class="py-5" aria-labelledby="featured-writing-heading">
+        <div class="d-flex justify-content-between align-items-end gap-3 mb-4">
+            <div>
+                <p class="text-uppercase text-body-secondary fw-semibold mb-1">Writing</p>
+                <h2 id="featured-writing-heading" class="mb-0">Featured writing</h2>
+            </div>
+            {% if homepage.writing_url %}<a href="{{ homepage.writing_url }}">Browse all writing</a>{% endif %}
+        </div>
+        <div class="row g-4">
+            {% for featured_title in homepage.featured_writing %}
+                {%- assign featured_post = site.posts | where: "title", featured_title | first -%}
+                {% if featured_post %}
+                <div class="col-lg-4 d-flex">
+                    <div class="card h-100 w-100">
+                        <div class="card-body d-flex flex-column">
+                            <p class="small text-body-secondary mb-2">{{ featured_post.date | date: "%b %-d, %Y" }}</p>
+                            <h3 class="h4 card-title"><a class="stretched-link post-link" href="{{ featured_post.url | prepend: site.url }}">{{ featured_post.title }}</a></h3>
+                            {% if featured_post.summary %}<p class="card-text text-body-secondary mt-2">{{ featured_post.summary }}</p>{% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if homepage.topics %}
+    <section class="py-5 border-top" aria-labelledby="topics-heading">
+        <p class="text-uppercase text-body-secondary fw-semibold mb-1">Current areas of interest</p>
+        <h2 id="topics-heading" class="mb-4">What I write about</h2>
+        <div class="row g-4">
+            {% for topic in homepage.topics %}
+            <div class="col-md-6 col-lg-4 d-flex">
+                <div class="card h-100 w-100">
+                    <div class="card-body">
+                        <h3 class="h5 card-title"><a class="stretched-link" href="{{ topic.url }}">{{ topic.title }}</a></h3>
+                        <p class="card-text text-body-secondary">{{ topic.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if homepage.projects %}
+    <section class="py-5 border-top" aria-labelledby="selected-projects-heading">
+        <div class="d-flex justify-content-between align-items-end gap-3 mb-4">
+            <div>
+                <p class="text-uppercase text-body-secondary fw-semibold mb-1">Building</p>
+                <h2 id="selected-projects-heading" class="mb-0">Selected projects</h2>
+            </div>
+            {% if homepage.projects_url %}<a href="{{ homepage.projects_url }}">View all projects</a>{% endif %}
+        </div>
+        <div class="row g-4">
+            {% for project in homepage.projects %}
+            <div class="col-md-6 d-flex">
+                <div class="card h-100 w-100">
+                    <div class="card-body">
+                        <h3 class="h4 card-title"><a class="stretched-link" href="{{ project.url }}">{{ project.title }}</a></h3>
+                        <p class="card-text">{{ project.description }}</p>
+                        {% if project.technologies %}<p class="small text-body-secondary mb-0">{{ project.technologies | join: " · " }}</p>{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="py-5 border-top" aria-labelledby="latest-writing-heading">
+        <p class="text-uppercase text-body-secondary fw-semibold mb-1">From the blog</p>
+        <h2 id="latest-writing-heading" class="mb-4">Latest writing</h2>
+        <div class="list-group list-group-flush">
+            {% for post in site.posts limit: homepage.latest_count | default: 5 %}
+            <a class="list-group-item list-group-item-action px-0 py-3 bg-transparent" href="{{ post.url | prepend: site.url }}">
+                <div class="d-flex flex-column flex-md-row justify-content-between gap-1">
+                    <strong>{{ post.title }}</strong>
+                    <span class="text-body-secondary small text-nowrap">{{ post.date | date: "%b %-d, %Y" }}</span>
+                </div>
+                {% if post.summary %}<div class="text-body-secondary mt-1">{{ post.summary }}</div>{% endif %}
+            </a>
+            {% endfor %}
+        </div>
+        {% if homepage.writing_url %}<div class="mt-3"><a href="{{ homepage.writing_url }}">Browse all writing</a></div>{% endif %}
+    </section>
+</div>
+{% else %}
 <div class="home row">
     <div class="post col-md-8 mx-auto" itemscope itemtype="https://schema.org/BlogPosting">
-
-        {%- assign locales = site.data.locales -%}
         {%- assign homePosts = site.posts -%}
         {%- if paginator and paginator.posts -%}
             {%- assign homePosts = paginator.posts -%}
@@ -14,7 +131,6 @@
             {%- for fPost in featuredPosts -%}
                 {%- include home/post_card.html post=fPost -%}
             {%- endfor -%}
-
             <hr>
         {% endunless %}
 
@@ -26,9 +142,8 @@
         {% endunless %}
 
         {% unless otherPosts != empty or featuredPosts != empty %}
-            <p><b>There don't appear to be ay posts...</b></p>
+            <p><b>There don't appear to be any posts...</b></p>
         {% endunless %}
-
     </div>
     <div class="vr d-none d-md-block" style="padding: 0;"></div>
     <hr class="d-block d-md-none">
@@ -36,3 +151,4 @@
         {% include sidebar.html %}
     </div>
 </div>
+{% endif %}
