@@ -1,14 +1,12 @@
 {%- include navigation/svg.html -%}
-{%- assign siteLogoLight = site.logo_light | prepend: site.url -%}
-{%- assign siteLogoDark = site.logo_dark | prepend: site.url -%}
 
-<nav id="navbar" class="navbar navbar-expand-lg bg-body">
+<nav id="navbar" class="navbar navbar-expand-lg bg-body" aria-label="Primary navigation">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
       <img
         id="site-logo"
         src="{{ site.logo_light | prepend: site.url }}"
-        alt="DevSculptor"
+        alt="{{ site.title }}"
         width="200"
       />
     </a>
@@ -23,26 +21,55 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="nav collapse navbar-collapse justify-content-center" id="navbarToggler">
       <ul class="navbar-nav">
-      {%- for page in site.data.page-list.pages -%}
-      {%- if page.title != "" && page.url != "" -%}
-      <li class="nav-item">
-        <a
-          class="nav-link link-body-emphasis"
-          aria-current="page"
-          href="{{ page.url | prepend: site.url }}"
-          {%- if page.new-tab == true -%}
-          target="_blank" rel="noopener noreferrer"
+        {%- for page in site.data.page-list.pages -%}
+          {%- assign title = page.title | default: '' -%}
+          {%- if title != '' -%}
+            {%- assign localized_title = site.data.locales[site.default_locale][title] | default: title -%}
+            {%- if page.url and page.url != '' -%}
+              <li class="nav-item">
+                <a
+                  class="nav-link link-body-emphasis"
+                  href="{{ page.url | prepend: site.url }}"
+                  {%- if page.new-tab == true %} target="_blank" rel="noopener noreferrer"{% endif -%}
+                >{{ localized_title }}</a>
+              </li>
+            {%- elsif page.submenu and page.submenu != empty -%}
+              <li class="nav-item dropdown">
+                <button
+                  class="nav-link link-body-emphasis dropdown-toggle border-0 bg-transparent"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >{{ localized_title }}</button>
+                <ul class="dropdown-menu">
+                  {%- assign subpage_groups = page.submenu | group_by: 'group' -%}
+                  {%- for subpage_group in subpage_groups -%}
+                    {%- for item in subpage_group.items -%}
+                      {%- if item.title and item.title != '' and item.url and item.url != '' -%}
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="{{ item.url | prepend: site.url }}"
+                            {%- if item.new-tab == true %} target="_blank" rel="noopener noreferrer"{% endif -%}
+                          >{{ item.title }}</a>
+                        </li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                    {%- unless forloop.last -%}
+                      <li><hr class="dropdown-divider"></li>
+                    {%- endunless -%}
+                  {%- endfor -%}
+                </ul>
+              </li>
+            {%- endif -%}
           {%- endif -%}
-          >
-          {{ page.title | replace: page.title, site.data.locales[site.default_locale].[page.title] }}
-        </a>
-      </li>
-      {%- endif -%}
-      {%- endfor -%}
+        {%- endfor -%}
       </ul>
     </div>
+
     {%- include navigation/color-theme-switcher.html -%}
   </div>
 </nav>
