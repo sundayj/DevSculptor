@@ -1,0 +1,79 @@
+---
+layout: default
+---
+{%- assign project = site.data.projects | where: "slug", page.project | first -%}
+
+<article class="project-case-study">
+  <header class="project-case-study-header mb-5">
+    <p class="text-uppercase small fw-semibold mb-2">Project case study</p>
+    <h1 class="display-5 mb-3">{{ project.name | default: page.title | escape }}</h1>
+
+    {% if project.summary %}
+      <p class="lead project-case-study-summary">{{ project.summary }}</p>
+    {% elsif page.description %}
+      <p class="lead project-case-study-summary">{{ page.description }}</p>
+    {% endif %}
+
+    {% if project %}
+      <div class="project-case-study-facts row g-3 mt-2">
+        {% if project.role %}
+          <div class="col-sm-6 col-lg-3"><strong class="d-block">Role</strong>{{ project.role }}</div>
+        {% endif %}
+        {% if project.start-year %}
+          <div class="col-sm-6 col-lg-3">
+            <strong class="d-block">Timeline</strong>
+            {{ project.start-year }}{% if project.ongoing == true %}–present{% elsif project.end-year %}–{{ project.end-year }}{% endif %}
+          </div>
+        {% endif %}
+        {% if project.status %}
+          <div class="col-sm-6 col-lg-3"><strong class="d-block">Status</strong>{{ project.status }}</div>
+        {% endif %}
+        {% if project.skills %}
+          <div class="col-sm-12 col-lg-6"><strong class="d-block">Stack</strong>{{ project.skills | array_to_sentence_string }}</div>
+        {% endif %}
+      </div>
+
+      <div class="project-actions d-flex flex-wrap gap-2 mt-4">
+        {% if project.website %}
+          <a class="btn btn-primary" href="{{ project.website }}" target="_blank" rel="noopener noreferrer">Visit project</a>
+        {% endif %}
+        {% if project.repository %}
+          <a class="btn btn-outline-secondary" href="{{ project.repository }}" target="_blank" rel="noopener noreferrer">View source</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </header>
+
+  {% if project.highlights %}
+    <aside class="project-case-study-highlights mb-5" aria-labelledby="project-highlights-heading">
+      <h2 id="project-highlights-heading" class="h4">Highlights</h2>
+      <ul>
+        {% for highlight in project.highlights %}
+          <li>{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+    </aside>
+  {% endif %}
+
+  <div class="project-case-study-content post-content">
+    {{ content }}
+  </div>
+
+  {% if project.images %}
+    <section class="project-case-study-gallery mt-5" aria-labelledby="project-gallery-heading">
+      <h2 id="project-gallery-heading">Screenshots</h2>
+      <div class="row g-4">
+        {% for image in project.images %}
+          <div class="col-12 col-lg-6">
+            <figure>
+              <a href="{{ image.path | relative_url }}" target="_blank" rel="noopener noreferrer">
+                <img class="img-fluid rounded" src="{{ image.path | relative_url }}" alt="{{ image.title }}" loading="lazy">
+              </a>
+              {% if image.caption %}<figcaption class="small mt-2">{{ image.caption }}</figcaption>{% endif %}
+            </figure>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</article>
