@@ -1,19 +1,48 @@
-<p>
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus tempore,
-  sint exercitationem accusamus libero iure magni eius vitae dolorem beatae cum
-  ullam iste odio quidem temporibus quisquam earum amet pariatur?
-</p>
+{%- include author-card.html variant="about" -%}
 
-## Contact Me
-<form action="https://fabform.io/f/{{site.fab_form}}" method="post">
+{%- if site.author.about -%}
+<section class="about-author my-4" aria-labelledby="about-author-heading">
+  <h2 id="about-author-heading">About my work</h2>
+  {%- for paragraph in site.author.about -%}
+    <p>{{ paragraph }}</p>
+  {%- endfor -%}
+</section>
+{%- endif -%}
+
+{%- if site.author.writing -%}
+<section class="about-writing my-4" aria-labelledby="about-writing-heading">
+  <h2 id="about-writing-heading">What I write about</h2>
+  <ul>
+    {%- for item in site.author.writing -%}
+      <li>{{ item }}</li>
+    {%- endfor -%}
+  </ul>
+</section>
+{%- endif -%}
+
+<section class="about-links my-4" aria-labelledby="about-links-heading">
+  <h2 id="about-links-heading">Explore my work</h2>
+  <p>
+    <a href="{{ '/projects/' | relative_url }}">Projects and engineering case studies</a>
+    ·
+    <a href="{{ '/' | relative_url }}">Latest writing</a>
+  </p>
+</section>
+
+{%- if site.fab_form -%}
+<section id="contact-me" class="my-4" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">Contact me</h2>
+  <form action="https://fabform.io/f/{{ site.fab_form }}" method="post">
     <label for="firstName" class="form-label">First Name</label>
-    <input name="firstName" type="text" required class="form-control">
-    <label for="lastName" class="form-label">Last Name</label>
-    <input name="lastName" type="text" class="form-control">
-    <label for="email" class="form-label">Email</label>
-    <input name="email" type="email" required class="form-control">
-    <label for="message" class="form-label">Message</label>
-    <textarea name="message" required class="form-control" rows="10"></textarea>
-    <p>Powered by <a href="https://fabform.io" target="_blank">fabform.io</a></p>
+    <input id="firstName" name="firstName" type="text" required class="form-control">
+    <label for="lastName" class="form-label mt-3">Last Name</label>
+    <input id="lastName" name="lastName" type="text" class="form-control">
+    <label for="email" class="form-label mt-3">Email</label>
+    <input id="email" name="email" type="email" required class="form-control">
+    <label for="message" class="form-label mt-3">Message</label>
+    <textarea id="message" name="message" required class="form-control" rows="8"></textarea>
+    <p class="small text-body-secondary mt-2">Powered by <a href="https://fabform.io" target="_blank" rel="noopener noreferrer">fabform.io</a></p>
     <button class="btn btn-primary" type="submit">Submit</button>
-</form>
+  </form>
+</section>
+{%- endif -%}
