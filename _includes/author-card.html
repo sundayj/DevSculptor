@@ -7,55 +7,96 @@
   {%- endif -%}
 {%- endif -%}
 
-<aside class="author-card card my-4" aria-label="About the author">
-  <div class="card-body">
-    <div class="d-flex flex-column flex-sm-row gap-3 align-items-sm-center">
-      {%- if profile_image and profile_image != "" -%}
-        <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0" aria-label="About {{ author.name }}">
-          <img
-            class="rounded-circle border"
-            src="{{ profile_image | relative_url }}"
-            alt="{{ author.name }}"
-            width="112"
-            height="112"
-            loading="lazy"
-            style="object-fit: cover;"
-          >
-        </a>
-      {%- endif -%}
-
-      <div class="flex-grow-1">
-        <p class="text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
-        <h2 class="h4 mb-1">{{ author.name }}</h2>
-        {%- if author.role and author.role != "" -%}
-          <p class="fw-semibold mb-2">{{ author.role }}</p>
-        {%- endif -%}
-        {%- if author.bio and author.bio != "" -%}
-          <p class="mb-3">{{ author.bio }}</p>
+<aside class="author-card card my-4 mx-auto" aria-label="About the author" style="max-width: 820px;">
+  <div class="card-body p-4">
+    {%- if variant == "about" -%}
+      <div class="d-flex flex-column flex-md-row-reverse gap-4 align-items-start">
+        {%- if profile_image and profile_image != "" -%}
+          <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0 align-self-end align-self-md-start" aria-label="About {{ author.name }}">
+            <img
+              class="author-card-profile-image author-card-profile-image-about rounded-3 border"
+              src="{{ profile_image | relative_url }}"
+              alt="{{ author.name }}"
+              width="144"
+              height="144"
+              loading="lazy"
+              style="object-fit: cover;"
+            >
+          </a>
         {%- endif -%}
 
-        {%- if author.focus and variant == "about" -%}
-          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-3" aria-label="Engineering focus areas">
-            {%- for item in author.focus -%}
-              <li><span class="badge rounded-pill text-bg-light border">{{ item }}</span></li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
+        <div class="flex-grow-1">
+          <p class="author-card-eyebrow text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
 
-        <div class="d-flex flex-wrap gap-2 align-items-center">
-          {%- unless variant == "about" -%}
-            <a class="btn btn-sm btn-outline-primary" href="{{ '/about/' | relative_url }}">About</a>
-          {%- endunless -%}
-          <a class="btn btn-sm btn-outline-secondary" href="{{ '/projects' | relative_url }}">Projects</a>
+          <div class="mb-2">
+            <h2 class="h4 mb-1">{{ author.name }}</h2>
+            {%- if author.role and author.role != "" -%}
+              <p class="text-body-secondary fw-semibold mb-0">{{ author.role }}</p>
+            {%- endif -%}
+          </div>
 
-          {%- assign socials = site.data.social | where: "show_in_contact_me", true -%}
-          {%- if socials == empty -%}
-            {%- assign socials = site.data.social | where: "show_in_contact_me", "true" -%}
+          {%- if author.bio and author.bio != "" -%}
+            <p class="mb-3">{{ author.bio }}</p>
           {%- endif -%}
+
+          {%- if author.focus -%}
+            <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="Engineering focus areas">
+              {%- for item in author.focus -%}
+                <li><span class="badge rounded-pill border bg-body-tertiary text-body-secondary fw-normal px-2 py-1">{{ item }}</span></li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="d-flex flex-column flex-sm-row gap-3 align-items-sm-start">
+        {%- if profile_image and profile_image != "" -%}
+          <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0 align-self-start" aria-label="About {{ author.name }}">
+            <img
+              class="author-card-profile-image author-card-profile-image-post rounded-circle border"
+              src="{{ profile_image | relative_url }}"
+              alt="{{ author.name }}"
+              width="112"
+              height="112"
+              loading="lazy"
+              style="object-fit: cover;"
+            >
+          </a>
+        {%- endif -%}
+
+        <div class="flex-grow-1">
+          <p class="author-card-eyebrow text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
+
+          <div class="mb-2">
+            <h2 class="h4 mb-1">{{ author.name }}</h2>
+            {%- if author.role and author.role != "" -%}
+              <p class="text-body-secondary fw-semibold mb-0">{{ author.role }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if author.bio and author.bio != "" -%}
+            <p class="mb-3">{{ author.bio }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="author-card-actions border-top mt-3 pt-3 d-flex flex-wrap gap-2 align-items-center">
+      {%- unless variant == "about" -%}
+        <a class="btn btn-sm btn-outline-primary" href="{{ '/about/' | relative_url }}">About</a>
+      {%- endunless -%}
+      <a class="btn btn-sm btn-outline-secondary" href="{{ '/projects' | relative_url }}">Projects</a>
+
+      {%- assign socials = site.data.social | where: "show_in_contact_me", true -%}
+      {%- if socials == empty -%}
+        {%- assign socials = site.data.social | where: "show_in_contact_me", "true" -%}
+      {%- endif -%}
+      {%- if socials and socials != empty -%}
+        <nav class="author-card-socials d-flex flex-wrap gap-1 align-items-center ms-sm-1" aria-label="Author profiles">
           {%- for social in socials -%}
             {%- if social.url and social.url != "" -%}
               <a
-                class="btn btn-sm btn-link px-1"
+                class="btn btn-sm btn-link text-body-secondary px-2"
                 href="{{ social.url }}"
                 target="_blank"
                 rel="noopener noreferrer me"
@@ -64,8 +105,8 @@
               ><i class="{{ social.icon }}" aria-hidden="true"></i></a>
             {%- endif -%}
           {%- endfor -%}
-        </div>
-      </div>
+        </nav>
+      {%- endif -%}
     </div>
   </div>
 </aside>
