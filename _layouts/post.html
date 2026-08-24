@@ -46,11 +46,11 @@ layout: default
 
     <hr/>
 
-    <div class="row container">
+    <div class="post-reading-layout row g-4 align-items-start">
         {%- if page.include_TOC -%}
             {% include toc.html %}
         {%- endif -%}
-        <div class="col-md-8">
+        <div class="{% if page.include_TOC %}col-lg-9{% else %}col-lg-9 mx-auto{% endif %}">
             <article class="post-content" id="article" itemprop="articleBody">
                 {%- include anchor_headings.html html=content anchorBody="<svg
           class='octicon'
