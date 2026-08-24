@@ -1,75 +1,77 @@
-<div id="project-{{ proj.name }}" class="card h-100 d-block">
-    <div class="card-body">
-        <h2 class="card-title">{{ proj.name }}</h2>
-        <div class="card-text">
-            {%- if proj.start-year and proj.start-year != "" -%}
-                <p><b>Project Started</b>: {{ proj.start-year }}</p>
-            {%- endif -%}
-            {%- if proj.end-year and proj.end-year != "" and proj.ongoing == false -%}
-                <p><b>Project Ended</b>: {{ proj.end-year }}</p>
-            {%- endif -%}
-            {%- if proj.ongoing and proj.ongoing == true -%}
-                <p><b>Project Ended</b>: Ongoing</p>
-            {%- endif -%}
-            {%- if proj.website != "" -%}
-                <p>
-                    <b>Project Website</b>:
-                    <a
-                            href="{{ proj.website }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="{{ proj.website }}"
-                    >
-                        {{ proj.website }}
-                    </a>
-                </p>
-            {%- endif -%}
-            {%- if proj.client and proj.client.name != '' -%}
-                <p>
-                    <b>Client</b>:
-                    {%- if proj.client.website != '' -%}
-                        <a
-                                href="{{ proj.client.website }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title="{{ proj.client.website }}"
-                        >
-                            {{ proj.client.name }}
-                        </a>
-                    {%- else -%}
-                        {{ proj.client.name }}
-                    {%- endif -%}
-                </p>
-            {%- endif -%}
-            {% if proj.tags %}
-                <p>
-                    <b>Tags</b>: {{ proj.tags | array_to_sentence_string }}
-                </p>
-            {% endif %}
-            {% if proj.skills %}
-                <p><b>Skills</b>: {{ proj.skills | array_to_sentence_string }}</p>
-            {% endif %}
-            {% if proj.description %}
-                <p>
-                    <b>Description</b>: <br>
-                </p>
-                    <p>{{ proj.description }}</p>
-            {% endif %}
-            <p><b>Project Images</b>:<br></p>
-            <div class="container row">
-                {%- for image in proj.images -%}
-                    <div class="col-sm-12 col-md-6">
-                        <figure>
-                            <a href="{{ image.path | prepend: site.url }}" target="_blank" rel="noopener noreferrer">
-                                <img alt="{{ image.title }}" src="{{ image.path | prepend: site.url }}" loading="lazy" title="Click to see larger image">
-                            </a>
-                            <figcaption>
-                                {{ image.caption }}
-                            </figcaption>
-                        </figure>
-                    </div>
-                {%- endfor -%}
-            </div>
-        </div>
+<article id="project-{{ proj.slug | default: proj.name | slugify }}" class="card project-card h-100 d-block">
+  <div class="card-body">
+    <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-start">
+      <div>
+        <h2 class="card-title h3 mb-2">{{ proj.name }}</h2>
+        {% if proj.summary %}
+          <p class="project-card-summary lead mb-3">{{ proj.summary }}</p>
+        {% elsif proj.description %}
+          <p class="project-card-summary mb-3">{{ proj.description | truncatewords: 45 }}</p>
+        {% endif %}
+      </div>
+      {% if proj.status or proj.ongoing == true %}
+        <span class="badge text-bg-secondary align-self-start">
+          {{ proj.status | default: "Ongoing" }}
+        </span>
+      {% endif %}
     </div>
-</div>
+
+    {% if proj.skills %}
+      <ul class="project-chip-list list-unstyled d-flex flex-wrap gap-2 mb-3" aria-label="Technologies used">
+        {% for skill in proj.skills %}
+          <li><span class="badge rounded-pill text-bg-light border">{{ skill }}</span></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if proj.highlights %}
+      <ul class="project-highlights mb-3">
+        {% for highlight in proj.highlights limit: 4 %}
+          <li>{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <dl class="project-meta row mb-3">
+      {% if proj.role %}
+        <dt class="col-sm-3">Role</dt><dd class="col-sm-9">{{ proj.role }}</dd>
+      {% endif %}
+      {% if proj.start-year %}
+        <dt class="col-sm-3">Timeline</dt>
+        <dd class="col-sm-9">
+          {{ proj.start-year }}{% if proj.ongoing == true %}–present{% elsif proj.end-year %}–{{ proj.end-year }}{% endif %}
+        </dd>
+      {% endif %}
+      {% if proj.tags %}
+        <dt class="col-sm-3">Focus</dt><dd class="col-sm-9">{{ proj.tags | array_to_sentence_string }}</dd>
+      {% endif %}
+    </dl>
+
+    <div class="project-actions d-flex flex-wrap gap-2 mb-3">
+      {% if proj.case_study %}
+        <a class="btn btn-primary" href="{{ proj.case_study | relative_url }}">Read case study</a>
+      {% endif %}
+      {% if proj.website %}
+        <a class="btn btn-outline-secondary" href="{{ proj.website }}" target="_blank" rel="noopener noreferrer">Visit project</a>
+      {% endif %}
+      {% if proj.repository %}
+        <a class="btn btn-outline-secondary" href="{{ proj.repository }}" target="_blank" rel="noopener noreferrer">View source</a>
+      {% endif %}
+    </div>
+
+    {% if proj.images %}
+      <div class="project-image-grid row g-3">
+        {% for image in proj.images limit: 4 %}
+          <div class="col-sm-12 col-md-6">
+            <figure class="mb-0">
+              <a href="{{ image.path | relative_url }}" target="_blank" rel="noopener noreferrer">
+                <img class="img-fluid rounded" alt="{{ image.title }}" src="{{ image.path | relative_url }}" loading="lazy" title="Click to see larger image">
+              </a>
+              {% if image.caption %}<figcaption class="small mt-1">{{ image.caption }}</figcaption>{% endif %}
+            </figure>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</article>
