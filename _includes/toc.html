@@ -1,7 +1,16 @@
-<div id="toc-sidebar" class="nav flex-column" style="width: 175px">
-    <div class="toc-header">Contents</div>
-    <div id="toc-contents"></div>
-</div>
-<span aria-expanded="false" id="tocOpenBtn" class="badge text-bg-secondary" aria-label="mobile navigation"
-      onclick="toggleTOC()">TOC<br/><span id="chevron"
-                                          style="transform: rotate(-180deg)">&raquo;</span></span>
+<aside class="col-lg-3 toc-column" aria-label="Table of contents">
+    <button
+        id="toc-toggle"
+        class="btn btn-outline-secondary w-100 d-lg-none mb-3"
+        type="button"
+        aria-expanded="false"
+        aria-controls="toc-panel">
+        <span>On this page</span>
+        <i class="bi bi-chevron-down ms-2" aria-hidden="true"></i>
+    </button>
+
+    <nav id="toc-panel" class="toc-panel" aria-label="On this page">
+        <div class="toc-header">On this page</div>
+        <div id="toc-contents"></div>
+    </nav>
+</aside>
