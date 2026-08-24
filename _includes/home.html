@@ -2,8 +2,12 @@
     <div class="post col-md-8 mx-auto" itemscope itemtype="https://schema.org/BlogPosting">
 
         {%- assign locales = site.data.locales -%}
-        {%- assign featuredPosts = paginator.posts | where: "featured", true -%}
-        {%- assign otherPosts = paginator.posts | where: "featured", false -%}
+        {%- assign homePosts = site.posts -%}
+        {%- if paginator and paginator.posts -%}
+            {%- assign homePosts = paginator.posts -%}
+        {%- endif -%}
+        {%- assign featuredPosts = homePosts | where: "featured", true -%}
+        {%- assign otherPosts = homePosts | where: "featured", false -%}
 
         {% unless featuredPosts == empty %}
             {%- assign featuredPosts = featuredPosts | sort: "order" -%}
