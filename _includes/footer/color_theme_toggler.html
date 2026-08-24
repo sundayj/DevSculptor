@@ -58,8 +58,8 @@
     }
   };
 
-  const lightLogo = '{{ site.logo_light | prepend: site.url }}';
-  const darkLogo = '{{ site.logo_dark | prepend: site.url }}';
+  const lightLogo = '{{ site.logo_light | relative_url }}';
+  const darkLogo = '{{ site.logo_dark | relative_url }}';
 
   const setLogo = themeColor => {
     const logoImgElement = document.getElementById('site-logo');
