@@ -1,0 +1,71 @@
+{%- assign author = site.author -%}
+{%- assign variant = include.variant | default: "post" -%}
+{%- assign profile_image = author.image -%}
+{%- if profile_image == nil or profile_image == "" -%}
+  {%- if site.aboutme and site.aboutme.photo and site.aboutme.photo.asset_path -%}
+    {%- assign profile_image = site.aboutme.photo.asset_path -%}
+  {%- endif -%}
+{%- endif -%}
+
+<aside class="author-card card my-4" aria-label="About the author">
+  <div class="card-body">
+    <div class="d-flex flex-column flex-sm-row gap-3 align-items-sm-center">
+      {%- if profile_image and profile_image != "" -%}
+        <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0" aria-label="About {{ author.name }}">
+          <img
+            class="rounded-circle border"
+            src="{{ profile_image | relative_url }}"
+            alt="{{ author.name }}"
+            width="112"
+            height="112"
+            loading="lazy"
+            style="object-fit: cover;"
+          >
+        </a>
+      {%- endif -%}
+
+      <div class="flex-grow-1">
+        <p class="text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
+        <h2 class="h4 mb-1">{{ author.name }}</h2>
+        {%- if author.role and author.role != "" -%}
+          <p class="fw-semibold mb-2">{{ author.role }}</p>
+        {%- endif -%}
+        {%- if author.bio and author.bio != "" -%}
+          <p class="mb-3">{{ author.bio }}</p>
+        {%- endif -%}
+
+        {%- if author.focus and variant == "about" -%}
+          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-3" aria-label="Engineering focus areas">
+            {%- for item in author.focus -%}
+              <li><span class="badge rounded-pill text-bg-light border">{{ item }}</span></li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        <div class="d-flex flex-wrap gap-2 align-items-center">
+          {%- unless variant == "about" -%}
+            <a class="btn btn-sm btn-outline-primary" href="{{ '/about/' | relative_url }}">About</a>
+          {%- endunless -%}
+          <a class="btn btn-sm btn-outline-secondary" href="{{ '/projects/' | relative_url }}">Projects</a>
+
+          {%- assign socials = site.data.social | where: "show_in_contact_me", true -%}
+          {%- if socials == empty -%}
+            {%- assign socials = site.data.social | where: "show_in_contact_me", "true" -%}
+          {%- endif -%}
+          {%- for social in socials -%}
+            {%- if social.url and social.url != "" -%}
+              <a
+                class="btn btn-sm btn-link px-1"
+                href="{{ social.url }}"
+                target="_blank"
+                rel="noopener noreferrer me"
+                aria-label="{{ social.name }}"
+                title="{{ social.name }}"
+              ><i class="{{ social.icon }}" aria-hidden="true"></i></a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
