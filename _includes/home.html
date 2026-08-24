@@ -86,10 +86,11 @@
         </div>
         <div class="row g-4">
             {% for project in homepage_projects %}
+            {%- assign project_url = project.case_study | default: project.website | default: project.repository | default: homepage.projects_url -%}
             <div class="col-md-6 col-lg-4 d-flex">
                 <div class="card h-100 w-100">
                     <div class="card-body">
-                        <h3 class="h4 card-title"><a class="stretched-link" href="{{ project.website | default: homepage.projects_url }}">{{ project.name }}</a></h3>
+                        <h3 class="h4 card-title"><a class="stretched-link" href="{{ project_url }}">{{ project.name }}</a></h3>
                         <p class="card-text">{{ project.description }}</p>
                         {% if project.skills %}<p class="small text-body-secondary mb-0">{{ project.skills | join: " · " }}</p>{% endif %}
                     </div>
