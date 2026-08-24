@@ -1,51 +1,86 @@
-<script type="text/javascript">
+<script>
     function generateTableOfContents() {
+        const article = document.getElementById('article');
         const tocContents = document.getElementById('toc-contents');
-        if (!tocContents) return;
+        const tocColumn = document.querySelector('.toc-column');
+        if (!article || !tocContents) return;
 
-        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        if (headings.length === 0) return;
-
-        const tocList = document.createElement('ul');
-        let currentLevel = 2;
-        let currentList = tocList;
-
-        // Create an array to store the last list for each level
-        const lastLists = [tocList];
-
-        for (let i = 0; i < headings.length; i++) {
-            const heading = headings[i];
-            const headingLevel = parseInt(heading.tagName.charAt(1));
-
-            // Ensure the level is within bounds
-            if (headingLevel < 2 || headingLevel > 6) continue;
-
-            // Adjust currentLevel and currentList based on the encountered heading level
-            while (currentLevel < headingLevel) {
-                const newList = document.createElement('ul');
-                currentList.appendChild(newList);
-                lastLists[currentLevel] = currentList;
-                currentList = newList;
-                currentLevel++;
-            }
-
-            while (currentLevel > headingLevel) {
-                currentList = lastLists[currentLevel - 1];
-                currentLevel--;
-            }
-
-            const listItem = document.createElement('li');
-            const anchor = document.createElement('a');
-            anchor.textContent = heading.textContent;
-            anchor.href = `#${heading.id}`;
-            listItem.appendChild(anchor);
-            currentList.appendChild(listItem);
-
-            lastLists[currentLevel] = currentList;
+        const headings = Array.from(article.querySelectorAll('h2[id], h3[id]'));
+        if (headings.length === 0) {
+            if (tocColumn) tocColumn.hidden = true;
+            return;
         }
 
-        tocContents.appendChild(tocList);
+        const tocList = document.createElement('ul');
+        tocList.className = 'toc-list';
+        let lastH2Item = null;
+
+        headings.forEach((heading) => {
+            const listItem = document.createElement('li');
+            listItem.className = `toc-item toc-item-${heading.tagName.toLowerCase()}`;
+
+            const anchor = document.createElement('a');
+            anchor.textContent = heading.textContent.trim();
+            anchor.href = `#${heading.id}`;
+            anchor.dataset.tocTarget = heading.id;
+            listItem.appendChild(anchor);
+
+            if (heading.tagName === 'H2') {
+                tocList.appendChild(listItem);
+                lastH2Item = listItem;
+                return;
+            }
+
+            if (lastH2Item) {
+                let nestedList = lastH2Item.querySelector(':scope > ul');
+                if (!nestedList) {
+                    nestedList = document.createElement('ul');
+                    nestedList.className = 'toc-sublist';
+                    lastH2Item.appendChild(nestedList);
+                }
+                nestedList.appendChild(listItem);
+            } else {
+                tocList.appendChild(listItem);
+            }
+        });
+
+        tocContents.replaceChildren(tocList);
+
+        const links = Array.from(tocContents.querySelectorAll('a[data-toc-target]'));
+        const setActiveLink = (headingId) => {
+            links.forEach((link) => {
+                const active = link.dataset.tocTarget === headingId;
+                link.classList.toggle('active', active);
+                if (active) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                const visible = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+                if (visible.length > 0) setActiveLink(visible[0].target.id);
+            }, {
+                rootMargin: '-15% 0px -70% 0px',
+                threshold: 0
+            });
+
+            headings.forEach((heading) => observer.observe(heading));
+        }
+
+        links.forEach((link) => {
+            link.addEventListener('click', () => setActiveLink(link.dataset.tocTarget));
+        });
     }
 
-    generateTableOfContents();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', generateTableOfContents);
+    } else {
+        generateTableOfContents();
+    }
 </script>

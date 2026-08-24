@@ -1,12 +1,34 @@
 <script>
-    function toggleTOC() {
-        const sidenav = document.getElementById("toc-sidebar");
-        const chevron = document.getElementById("chevron");
-        const btn = document.getElementById("tocOpenBtn");
-        let ariaValue = btn.getAttribute("aria-expanded");
+    function initializeTocToggle() {
+        const button = document.getElementById('toc-toggle');
+        const panel = document.getElementById('toc-panel');
+        if (!button || !panel) return;
 
-        sidenav.style.width = sidenav.style.width === "175px" ? "0" : "175px";
-        chevron.style.transform = chevron.style.transform === "rotate(-180deg)" ? "rotate(0deg)" : "rotate(-180deg)";
-        ariaValue === "true" ? btn.setAttribute("aria-expanded", "false") : btn.setAttribute("aria-expanded", "true");
+        const setExpanded = (expanded) => {
+            button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            panel.classList.toggle('toc-panel-open', expanded);
+            const icon = button.querySelector('.bi');
+            if (icon) {
+                icon.classList.toggle('bi-chevron-down', !expanded);
+                icon.classList.toggle('bi-chevron-up', expanded);
+            }
+        };
+
+        setExpanded(false);
+        button.addEventListener('click', () => {
+            setExpanded(button.getAttribute('aria-expanded') !== 'true');
+        });
+
+        panel.addEventListener('click', (event) => {
+            if (event.target.closest('a') && window.matchMedia('(max-width: 991.98px)').matches) {
+                setExpanded(false);
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeTocToggle);
+    } else {
+        initializeTocToggle();
     }
 </script>
