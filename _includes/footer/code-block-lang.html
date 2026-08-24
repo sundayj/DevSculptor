@@ -18,7 +18,7 @@
         const codeCell = container.querySelector('.rouge-table td.code pre, .rouge-table td.code code');
         if (codeCell) return codeCell.innerText;
 
-        const code = container.querySelector('pre code, code');
+        const code = container.querySelector('pre code');
         if (code) return code.innerText;
 
         const pre = container.querySelector('pre');
@@ -26,7 +26,8 @@
     }
 
     function initializeCodeBlocks() {
-        const blocks = document.querySelectorAll('.highlighter-rouge, figure.highlight');
+        const candidates = document.querySelectorAll('div.highlighter-rouge, figure.highlight');
+        const blocks = Array.from(candidates).filter(block => block.querySelector('pre'));
 
         blocks.forEach((block, index) => {
             if (block.dataset.codeEnhanced === 'true') return;

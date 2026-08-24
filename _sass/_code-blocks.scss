@@ -3,7 +3,7 @@ div.highlighter-rouge::before {
   display: none;
 }
 
-.highlighter-rouge,
+div.highlighter-rouge,
 figure.highlight {
   position: relative;
   margin: 1.5rem 0;
@@ -13,7 +13,7 @@ figure.highlight {
   background: #2e3e4e;
 }
 
-.highlighter-rouge .code-block-toolbar,
+div.highlighter-rouge .code-block-toolbar,
 figure.highlight .code-block-toolbar {
   display: flex;
   align-items: center;
@@ -67,23 +67,23 @@ figure.highlight .code-block-toolbar {
   color: #81ffd9;
 }
 
-.highlighter-rouge > .highlight,
+div.highlighter-rouge > .highlight,
 figure.highlight > pre,
 figure.highlight > table,
-.highlighter-rouge > pre,
-.highlighter-rouge > table {
+div.highlighter-rouge > pre,
+div.highlighter-rouge > table {
   margin: 0;
   border-radius: 0;
 }
 
-.highlighter-rouge .highlight,
+div.highlighter-rouge .highlight,
 figure.highlight,
-.highlighter-rouge pre,
+div.highlighter-rouge pre,
 figure.highlight pre {
   max-height: none;
 }
 
-.highlighter-rouge pre,
+div.highlighter-rouge pre,
 figure.highlight pre {
   overflow-x: auto;
   overflow-y: hidden;
