@@ -9,44 +9,77 @@
 
 <aside class="author-card card my-4 mx-auto" aria-label="About the author" style="max-width: 820px;">
   <div class="card-body p-4">
-    <div class="d-flex flex-column flex-sm-row gap-3 align-items-sm-start">
-      {%- if profile_image and profile_image != "" -%}
-        <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0 align-self-start" aria-label="About {{ author.name }}">
-          <img
-            class="author-card-profile-image rounded-circle border"
-            src="{{ profile_image | relative_url }}"
-            alt="{{ author.name }}"
-            width="112"
-            height="112"
-            loading="lazy"
-            style="object-fit: cover;"
-          >
-        </a>
-      {%- endif -%}
+    {%- if variant == "about" -%}
+      <div class="d-flex flex-column flex-md-row-reverse gap-4 align-items-start">
+        {%- if profile_image and profile_image != "" -%}
+          <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0 align-self-end align-self-md-start" aria-label="About {{ author.name }}">
+            <img
+              class="author-card-profile-image author-card-profile-image-about rounded-3 border"
+              src="{{ profile_image | relative_url }}"
+              alt="{{ author.name }}"
+              width="144"
+              height="144"
+              loading="lazy"
+              style="object-fit: cover;"
+            >
+          </a>
+        {%- endif -%}
 
-      <div class="flex-grow-1">
-        <p class="author-card-eyebrow text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
+        <div class="flex-grow-1">
+          <p class="author-card-eyebrow text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
 
-        <div class="mb-2">
-          <h2 class="h4 mb-1">{{ author.name }}</h2>
-          {%- if author.role and author.role != "" -%}
-            <p class="text-body-secondary fw-semibold mb-0">{{ author.role }}</p>
+          <div class="mb-2">
+            <h2 class="h4 mb-1">{{ author.name }}</h2>
+            {%- if author.role and author.role != "" -%}
+              <p class="text-body-secondary fw-semibold mb-0">{{ author.role }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if author.bio and author.bio != "" -%}
+            <p class="mb-3">{{ author.bio }}</p>
+          {%- endif -%}
+
+          {%- if author.focus -%}
+            <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="Engineering focus areas">
+              {%- for item in author.focus -%}
+                <li><span class="badge rounded-pill border bg-body-tertiary text-body-secondary fw-normal px-2 py-1">{{ item }}</span></li>
+              {%- endfor -%}
+            </ul>
           {%- endif -%}
         </div>
-
-        {%- if author.bio and author.bio != "" -%}
-          <p class="mb-3">{{ author.bio }}</p>
-        {%- endif -%}
-
-        {%- if author.focus and variant == "about" -%}
-          <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="Engineering focus areas">
-            {%- for item in author.focus -%}
-              <li><span class="badge rounded-pill border bg-body-tertiary text-body-secondary fw-normal px-2 py-1">{{ item }}</span></li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
       </div>
-    </div>
+    {%- else -%}
+      <div class="d-flex flex-column flex-sm-row gap-3 align-items-sm-start">
+        {%- if profile_image and profile_image != "" -%}
+          <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0 align-self-start" aria-label="About {{ author.name }}">
+            <img
+              class="author-card-profile-image author-card-profile-image-post rounded-circle border"
+              src="{{ profile_image | relative_url }}"
+              alt="{{ author.name }}"
+              width="112"
+              height="112"
+              loading="lazy"
+              style="object-fit: cover;"
+            >
+          </a>
+        {%- endif -%}
+
+        <div class="flex-grow-1">
+          <p class="author-card-eyebrow text-body-secondary small text-uppercase fw-semibold mb-1">About the author</p>
+
+          <div class="mb-2">
+            <h2 class="h4 mb-1">{{ author.name }}</h2>
+            {%- if author.role and author.role != "" -%}
+              <p class="text-body-secondary fw-semibold mb-0">{{ author.role }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if author.bio and author.bio != "" -%}
+            <p class="mb-3">{{ author.bio }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
 
     <div class="author-card-actions border-top mt-3 pt-3 d-flex flex-wrap gap-2 align-items-center">
       {%- unless variant == "about" -%}
