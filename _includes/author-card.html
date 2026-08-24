@@ -13,7 +13,7 @@
       {%- if profile_image and profile_image != "" -%}
         <a href="{{ '/about/' | relative_url }}" class="flex-shrink-0 align-self-start" aria-label="About {{ author.name }}">
           <img
-            class="rounded-circle border"
+            class="author-card-profile-image rounded-circle border"
             src="{{ profile_image | relative_url }}"
             alt="{{ author.name }}"
             width="128"
@@ -26,7 +26,7 @@
 
       <div class="flex-grow-1">
         {%- unless variant == "about" -%}
-          <p class="text-body-secondary small text-uppercase fw-semibold mb-2">About the author</p>
+          <p class="author-card-eyebrow text-body-secondary small text-uppercase fw-semibold mb-2">About the author</p>
         {%- endunless -%}
 
         <div class="mb-3">
@@ -63,7 +63,7 @@
         {%- assign socials = site.data.social | where: "show_in_contact_me", "true" -%}
       {%- endif -%}
       {%- if socials and socials != empty -%}
-        <nav class="d-flex flex-wrap gap-1 align-items-center" aria-label="Author profiles">
+        <nav class="author-card-socials d-flex flex-wrap gap-1 align-items-center" aria-label="Author profiles">
           {%- for social in socials -%}
             {%- if social.url and social.url != "" -%}
               <a
