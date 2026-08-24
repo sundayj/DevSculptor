@@ -66,6 +66,9 @@ layout: default
           ></path></svg
         >" -%}
             </article>
+            {%- if site.author and site.author.name -%}
+                {%- include author-card.html variant="post" -%}
+            {%- endif -%}
         </div>
     </div>
 </div>
