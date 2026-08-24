@@ -1,0 +1,64 @@
+.project-card {
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.project-card .card-body {
+  padding: clamp(1.25rem, 2vw, 2rem);
+}
+
+.project-card-summary,
+.project-case-study-summary {
+  max-width: 72ch;
+}
+
+.project-chip-list .badge {
+  font-weight: 500;
+}
+
+.project-meta dt,
+.project-meta dd {
+  margin-bottom: 0.5rem;
+}
+
+.project-highlights,
+.project-case-study-highlights ul {
+  padding-left: 1.25rem;
+}
+
+.project-highlights li + li,
+.project-case-study-highlights li + li {
+  margin-top: 0.4rem;
+}
+
+.project-image-grid img,
+.project-case-study-gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.project-case-study {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.project-case-study-header {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.project-case-study-facts > div {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--bs-border-color);
+}
+
+.project-case-study-highlights {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--bs-tertiary-bg);
+}
+
+.project-case-study-content > :first-child {
+  margin-top: 0;
+}
