@@ -1,12 +1,88 @@
 <script>
-document.querySelectorAll(".highlighter-rouge, figure.highlight").forEach(i => {
-    i.setAttribute("data-lang", "code");
-    var l = i.getAttribute("class").split("language-");
-    if (l.length > 1) {
-        var lang = l[1].split(" ");
-        if (lang.length > 0) {
-        i.setAttribute("data-lang", lang[0]);
+(function () {
+    function getLanguage(container) {
+        const className = container.className || '';
+        const match = className.match(/(?:^|\s)language-([^\s]+)/);
+        if (match) return match[1];
+
+        const code = container.querySelector('code[class*="language-"]');
+        if (code) {
+            const codeMatch = code.className.match(/(?:^|\s)language-([^\s]+)/);
+            if (codeMatch) return codeMatch[1];
         }
+
+        return 'code';
     }
-});
+
+    function getCodeText(container) {
+        const codeCell = container.querySelector('.rouge-table td.code pre, .rouge-table td.code code');
+        if (codeCell) return codeCell.innerText;
+
+        const code = container.querySelector('pre code, code');
+        if (code) return code.innerText;
+
+        const pre = container.querySelector('pre');
+        return pre ? pre.innerText : '';
+    }
+
+    function initializeCodeBlocks() {
+        const blocks = document.querySelectorAll('.highlighter-rouge, figure.highlight');
+
+        blocks.forEach((block, index) => {
+            if (block.dataset.codeEnhanced === 'true') return;
+            block.dataset.codeEnhanced = 'true';
+            block.dataset.lang = getLanguage(block);
+
+            const toolbar = document.createElement('div');
+            toolbar.className = 'code-block-toolbar';
+
+            const language = document.createElement('span');
+            language.className = 'code-block-language';
+            language.textContent = block.dataset.lang;
+            toolbar.appendChild(language);
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'code-copy-button';
+            button.setAttribute('aria-label', `Copy ${block.dataset.lang} code to clipboard`);
+            button.innerHTML = '<i class="bi bi-clipboard" aria-hidden="true"></i><span>Copy</span>';
+
+            button.addEventListener('click', async () => {
+                const text = getCodeText(block);
+                if (!text) return;
+
+                try {
+                    await navigator.clipboard.writeText(text);
+                    button.classList.add('copied');
+                    button.querySelector('span').textContent = 'Copied';
+                    button.querySelector('i').className = 'bi bi-check2';
+                    window.setTimeout(() => {
+                        button.classList.remove('copied');
+                        button.querySelector('span').textContent = 'Copy';
+                        button.querySelector('i').className = 'bi bi-clipboard';
+                    }, 1800);
+                } catch (error) {
+                    const selection = window.getSelection();
+                    const range = document.createRange();
+                    const target = block.querySelector('pre code, td.code pre, pre');
+                    if (!target) return;
+                    range.selectNodeContents(target);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    button.querySelector('span').textContent = 'Select & copy';
+                }
+            });
+
+            toolbar.appendChild(button);
+            block.insertBefore(toolbar, block.firstChild);
+            block.setAttribute('data-code-block', String(index + 1));
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCodeBlocks);
+    } else {
+        initializeCodeBlocks();
+    }
+})();
 </script>
