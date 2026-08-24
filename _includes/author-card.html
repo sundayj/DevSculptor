@@ -46,7 +46,7 @@
           {%- unless variant == "about" -%}
             <a class="btn btn-sm btn-outline-primary" href="{{ '/about/' | relative_url }}">About</a>
           {%- endunless -%}
-          <a class="btn btn-sm btn-outline-secondary" href="{{ '/projects/' | relative_url }}">Projects</a>
+          <a class="btn btn-sm btn-outline-secondary" href="{{ '/projects' | relative_url }}">Projects</a>
 
           {%- assign socials = site.data.social | where: "show_in_contact_me", true -%}
           {%- if socials == empty -%}
