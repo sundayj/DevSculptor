@@ -58,10 +58,19 @@
     }
   };
 
+  const lightLogo = '{{ site.logo_light | prepend: site.url }}';
+  const darkLogo = '{{ site.logo_dark | prepend: site.url }}';
+
   const setLogo = themeColor => {
-    const themeLogo = themeColor == 'dark' ? '{{ siteLogoDark }}' : '{{ siteLogoLight }}';
-    const logoImgElement = document.getElementById("site-logo");
-    logoImgElement.setAttribute('src', themeLogo);
+    const logoImgElement = document.getElementById('site-logo');
+    if (!logoImgElement) {
+      return;
+    }
+
+    const themeLogo = themeColor == 'dark' ? darkLogo : lightLogo;
+    if (themeLogo) {
+      logoImgElement.setAttribute('src', themeLogo);
+    }
   };
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
