@@ -40,12 +40,13 @@
             {% for featured_title in homepage.featured_writing %}
                 {%- assign featured_post = site.posts | where: "title", featured_title | first -%}
                 {% if featured_post %}
+                {%- assign featured_summary = featured_post.description | default: featured_post.summary -%}
                 <div class="col-lg-4 d-flex">
                     <div class="card h-100 w-100">
                         <div class="card-body d-flex flex-column">
                             <p class="small text-body-secondary mb-2">{{ featured_post.date | date: "%b %-d, %Y" }}</p>
                             <h3 class="h4 card-title"><a class="stretched-link post-link" href="{{ featured_post.url | prepend: site.url }}">{{ featured_post.title }}</a></h3>
-                            {% if featured_post.summary %}<p class="card-text text-body-secondary mt-2">{{ featured_post.summary }}</p>{% endif %}
+                            {% if featured_summary %}<p class="card-text text-body-secondary mt-2">{{ featured_summary }}</p>{% endif %}
                         </div>
                     </div>
                 </div>
@@ -106,12 +107,13 @@
         <h2 id="latest-writing-heading" class="mb-4">Latest writing</h2>
         <div class="list-group list-group-flush">
             {% for post in site.posts limit: homepage.latest_count | default: 5 %}
+            {%- assign latest_summary = post.description | default: post.summary -%}
             <a class="list-group-item list-group-item-action px-0 py-3 bg-transparent" href="{{ post.url | prepend: site.url }}">
                 <div class="d-flex flex-column flex-md-row justify-content-between gap-1">
                     <strong>{{ post.title }}</strong>
                     <span class="text-body-secondary small text-nowrap">{{ post.date | date: "%b %-d, %Y" }}</span>
                 </div>
-                {% if post.summary %}<div class="text-body-secondary mt-1">{{ post.summary }}</div>{% endif %}
+                {% if latest_summary %}<div class="text-body-secondary mt-1">{{ latest_summary }}</div>{% endif %}
             </a>
             {% endfor %}
         </div>
