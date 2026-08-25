@@ -51,6 +51,16 @@ layout: default
             {% include toc.html %}
         {%- endif -%}
         <div class="{% if page.include_TOC %}col-lg-9{% else %}col-lg-9 mx-auto{% endif %}">
+            {%- if page.image -%}
+                <figure class="post-hero">
+                    <img src="{{ page.image | relative_url }}"
+                         alt="{{ page.image_alt | default: page.title | escape }}"
+                         itemprop="image"/>
+                    {%- if page.image_caption -%}
+                        <figcaption>{{ page.image_caption }}</figcaption>
+                    {%- endif -%}
+                </figure>
+            {%- endif -%}
             <article class="post-content" id="article" itemprop="articleBody">
                 {%- include anchor_headings.html html=content anchorBody="<svg
           class='octicon'
