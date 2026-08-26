@@ -51,7 +51,7 @@ layout: default
             {% include toc.html %}
         {%- endif -%}
         <div class="{% if page.include_TOC %}col-lg-9{% else %}col-lg-9 mx-auto{% endif %}">
-            {%- if page.image -%}
+            {%- if page.image and page.image.path == nil -%}
                 <figure class="post-hero">
                     <img src="{{ page.image | relative_url }}"
                          alt="{{ page.image_alt | default: page.title | escape }}"
